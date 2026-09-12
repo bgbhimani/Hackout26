@@ -1,184 +1,149 @@
 "use client";
 
-import { Factory, Leaf, Package, Route as RouteIcon, Truck } from "lucide-react";
+import { Factory, ShieldCheck, Sprout } from "lucide-react";
 
-import { CategoryBarChart } from "@/components/charts/category-bar-chart";
-import { MonthlyLineChart } from "@/components/charts/monthly-line-chart";
-import { CHART_COLORS } from "@/components/charts/chart-colors";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { KpiCard } from "@/components/dashboard/kpi-card";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useAuth } from "@/hooks/use-auth";
 import { useDashboardData } from "@/hooks/use-dashboard-data";
-
-const WASTE_TYPE_LABEL: Record<string, string> = {
-  RICE_STRAW: "Rice Straw",
-  WHEAT_STRAW: "Wheat Straw",
-  COTTON_RESIDUE: "Cotton Residue",
-  SUGARCANE_RESIDUE: "Sugarcane Residue",
-  FOOD_WASTE: "Food Waste",
-  ORGANIC_WASTE: "Organic Waste",
-  ANIMAL_MANURE: "Animal Manure",
-};
+import { AdminDashboard } from "@/components/dashboard/admin-dashboard";
+import { GeneratorDashboard } from "@/components/dashboard/generator-dashboard";
+import { FacilityDashboard } from "@/components/dashboard/facility-dashboard";
 
 export default function DashboardPage() {
-  const { summary, analytics, loading, error } = useDashboardData();
+  const { user } = useAuth();
+  const { summary, analytics, wasteRecords, facilities, routes, carbonRecords, loading, error } =
+    useDashboardData();
 
   if (error) {
     return (
-      <div className="space-y-2">
+      <div className="space-y-4">
         <h1 className="text-2xl font-semibold text-foreground">Dashboard</h1>
-        <Card>
-          <CardContent className="p-6 text-sm text-destructive">Couldn&apos;t load dashboard data: {error}</CardContent>
+        <Card className="border-destructive/30 bg-destructive/5">
+          <CardContent className="p-6 text-sm text-destructive">
+            Couldn&apos;t load dashboard data: {error}
+          </CardContent>
         </Card>
       </div>
     );
   }
 
+  // Determine role-specific header details
+  const role = user?.role || "ADMIN";
+
+  const getRoleHeader = () => {
+    switch (role) {
+      case "WASTE_GENERATOR":
+        return {
+          title: "Waste Generator Dashboard",
+          description: "Waste batch logging, AI residue yield forecasting, and smart facility matching.",
+          badge: (
+            <Badge className="bg-emerald-600 text-white font-medium text-xs gap-1">
+              <Sprout className="h-3 w-3" />
+              Waste Generator
+            </Badge>
+          ),
+        };
+      case "FACILITY_OPERATOR":
+        return {
+          title: "Facility Operations Dashboard",
+          description: "Conversion plant capacity, feedstock intake, and route logistics dispatch.",
+          badge: (
+            <Badge className="bg-blue-600 text-white font-medium text-xs gap-1">
+              <Factory className="h-3 w-3" />
+              Facility Operator
+            </Badge>
+          ),
+        };
+      case "ADMIN":
+      default:
+        return {
+          title: "System Admin Dashboard",
+          description: "Platform-wide circular carbon metrics and network administration.",
+          badge: (
+            <Badge className="bg-primary text-primary-foreground font-medium text-xs gap-1">
+              <ShieldCheck className="h-3 w-3" />
+              System Admin
+            </Badge>
+          ),
+        };
+    }
+  };
+
+  const roleHeader = getRoleHeader();
+
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold text-foreground">Dashboard</h1>
-        <p className="text-sm text-muted-foreground">
-          Live overview of waste availability, diversion, and carbon impact across the network.
-        </p>
+      {/* Top Header strictly tailored to user's role */}
+      <div className="flex flex-col gap-2 border-b border-border/60 pb-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <div className="flex items-center gap-2.5">
+            <h1 className="text-2xl font-bold tracking-tight text-foreground">{roleHeader.title}</h1>
+            {roleHeader.badge}
+          </div>
+          <p className="text-sm text-muted-foreground mt-0.5">
+            {roleHeader.description}
+          </p>
+        </div>
+
+        {user && (
+          <div className="text-xs text-muted-foreground">
+            Logged in as <strong className="text-foreground">{user.name}</strong> ({user.email})
+          </div>
+        )}
       </div>
 
-      {/* KPI cards */}
-      {loading || !summary ? (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Skeleton key={i} className="h-[92px]" />
-          ))}
+      {/* Loading Skeletons */}
+      {loading || !summary || !analytics ? (
+        <div className="space-y-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Skeleton key={i} className="h-[96px] rounded-xl" />
+            ))}
+          </div>
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <Skeleton key={i} className="h-[320px] rounded-xl" />
+            ))}
+          </div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          <KpiCard
-            label="Total Waste Available"
-            value={summary.total_waste_available_tonnes.toLocaleString()}
-            unit="tonnes"
-            icon={Package}
-            tone="primary"
-          />
-          <KpiCard
-            label="Waste Diverted"
-            value={summary.waste_diverted_tonnes.toLocaleString()}
-            unit="tonnes"
-            icon={Truck}
-            tone="secondary"
-          />
-          <KpiCard
-            label="Active Facilities"
-            value={summary.active_facilities.toString()}
-            icon={Factory}
-            tone="accent"
-          />
-          <KpiCard label="Active Routes" value={summary.active_routes.toString()} icon={RouteIcon} tone="secondary" />
-          <KpiCard
-            label="Estimated CO₂ Impact"
-            value={summary.estimated_co2_impact_tonnes.toLocaleString()}
-            unit="t CO₂e"
-            icon={Leaf}
-            tone="primary"
-          />
-        </div>
-      )}
+        /* Render exclusively the user's role dashboard */
+        <>
+          {role === "ADMIN" && (
+            <AdminDashboard
+              summary={summary}
+              analytics={analytics}
+              wasteRecords={wasteRecords}
+              facilities={facilities}
+              routes={routes}
+              carbonRecords={carbonRecords}
+            />
+          )}
 
-      {/* Charts */}
-      {loading || !analytics ? (
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Skeleton key={i} className="h-[320px]" />
-          ))}
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          <Card>
-            <CardHeader>
-              <CardTitle>Waste availability over time</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <MonthlyLineChart
-                data={analytics.waste_availability_over_time}
-                dataKey="quantity_tonnes"
-                valueLabel="Available"
-                color={CHART_COLORS.primary}
-                emptyTitle="No availability data yet"
-                emptyDescription="Waste records with AVAILABLE status will appear here month by month."
-              />
-            </CardContent>
-          </Card>
+          {role === "WASTE_GENERATOR" && (
+            <GeneratorDashboard
+              summary={summary}
+              analytics={analytics}
+              wasteRecords={wasteRecords}
+              facilities={facilities}
+              routes={routes}
+              carbonRecords={carbonRecords}
+            />
+          )}
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Waste diverted over time</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <MonthlyLineChart
-                data={analytics.waste_diverted_over_time}
-                dataKey="quantity_tonnes"
-                valueLabel="Diverted"
-                color={CHART_COLORS.secondary}
-                emptyTitle="No diversion data yet"
-                emptyDescription="Waste records marked COLLECTED or PROCESSED will appear here."
-              />
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Waste by type</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CategoryBarChart
-                data={analytics.waste_by_type.map((d) => ({
-                  ...d,
-                  label: WASTE_TYPE_LABEL[d.waste_type] ?? d.waste_type,
-                }))}
-                xKey="label"
-                yKey="quantity_tonnes"
-                valueLabel="Quantity"
-                valueSuffix=" t"
-                layout="horizontal"
-                emptyTitle="No waste records yet"
-                emptyDescription="Once waste records exist, their totals by type will appear here."
-              />
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Facility capacity utilization</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CategoryBarChart
-                data={analytics.facility_utilization}
-                xKey="facility_name"
-                yKey="utilization_percent"
-                valueLabel="Utilization"
-                valueSuffix="%"
-                layout="horizontal"
-                emptyTitle="No facilities yet"
-                emptyDescription="Facility capacity and current load will appear here once facilities are registered."
-              />
-            </CardContent>
-          </Card>
-
-          <Card className="lg:col-span-2">
-            <CardHeader>
-              <CardTitle>Carbon impact over time</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <MonthlyLineChart
-                data={analytics.carbon_impact_over_time.map((d) => ({ ...d, quantity_tonnes: d.net_co2_impact_tonnes }))}
-                dataKey="quantity_tonnes"
-                valueLabel="Net CO₂e"
-                color={CHART_COLORS.accent}
-                emptyTitle="No carbon impact data yet"
-                emptyDescription="Built in Phase 8 (Carbon) - this chart will populate once waste is matched, routed, and its carbon impact calculated."
-              />
-            </CardContent>
-          </Card>
-        </div>
+          {role === "FACILITY_OPERATOR" && (
+            <FacilityDashboard
+              summary={summary}
+              analytics={analytics}
+              wasteRecords={wasteRecords}
+              facilities={facilities}
+              routes={routes}
+              carbonRecords={carbonRecords}
+            />
+          )}
+        </>
       )}
     </div>
   );

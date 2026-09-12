@@ -31,6 +31,32 @@ export interface User {
   role: UserRole;
 }
 
+export interface WasteGeneratorSignupPayload {
+  name: string;
+  email: string;
+  password: string;
+  generator_name: string;
+  generator_type: GeneratorType;
+  phone?: string;
+  address: string;
+  latitude: number;
+  longitude: number;
+}
+
+export interface FacilityOperatorSignupPayload {
+  name: string;
+  email: string;
+  password: string;
+  facility_name: string;
+  facility_type: FacilityType;
+  capacity_tonnes: number;
+  current_load_tonnes?: number;
+  accepted_waste_types: WasteType[];
+  address: string;
+  latitude: number;
+  longitude: number;
+}
+
 export interface Generator {
   id: string;
   name: string;

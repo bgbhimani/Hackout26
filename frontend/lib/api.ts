@@ -16,11 +16,15 @@ export function getToken(): string | null {
 }
 
 export function setToken(token: string): void {
-  window.localStorage.setItem(TOKEN_STORAGE_KEY, token);
+  if (typeof window !== "undefined") {
+    window.localStorage.setItem(TOKEN_STORAGE_KEY, token);
+  }
 }
 
 export function clearToken(): void {
-  window.localStorage.removeItem(TOKEN_STORAGE_KEY);
+  if (typeof window !== "undefined") {
+    window.localStorage.removeItem(TOKEN_STORAGE_KEY);
+  }
 }
 
 export class ApiError extends Error {

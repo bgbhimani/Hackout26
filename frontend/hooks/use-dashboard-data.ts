@@ -3,33 +3,73 @@
 import { useEffect, useState } from "react";
 
 import { apiFetch } from "@/lib/api";
-import type { DashboardAnalytics, DashboardSummary } from "@/types";
+import type {
+  CarbonRecord,
+  DashboardAnalytics,
+  DashboardSummary,
+  Facility,
+  OptimizedRoute,
+  WasteRecordWithGenerator,
+} from "@/types";
 
 interface State {
   summary: DashboardSummary | null;
   analytics: DashboardAnalytics | null;
+  wasteRecords: WasteRecordWithGenerator[];
+  facilities: Facility[];
+  routes: OptimizedRoute[];
+  carbonRecords: CarbonRecord[];
   loading: boolean;
   error: string | null;
 }
 
 export function useDashboardData() {
-  const [state, setState] = useState<State>({ summary: null, analytics: null, loading: true, error: null });
+  const [state, setState] = useState<State>({
+    summary: null,
+    analytics: null,
+    wasteRecords: [],
+    facilities: [],
+    routes: [],
+    carbonRecords: [],
+    loading: true,
+    error: null,
+  });
 
   useEffect(() => {
     let cancelled = false;
 
     async function load() {
       try {
-        const [summary, analytics] = await Promise.all([
+        const [summary, analytics, wasteRecords, facilities, routes, carbonRecords] = await Promise.all([
           apiFetch<DashboardSummary>("/api/dashboard/summary"),
           apiFetch<DashboardAnalytics>("/api/dashboard/analytics"),
+          apiFetch<WasteRecordWithGenerator[]>("/api/waste").catch(() => []),
+          apiFetch<Facility[]>("/api/facilities").catch(() => []),
+          apiFetch<OptimizedRoute[]>("/api/routes").catch(() => []),
+          apiFetch<CarbonRecord[]>("/api/carbon").catch(() => []),
         ]);
-        if (!cancelled) setState({ summary, analytics, loading: false, error: null });
+
+        if (!cancelled) {
+          setState({
+            summary,
+            analytics,
+            wasteRecords: Array.isArray(wasteRecords) ? wasteRecords : [],
+            facilities: Array.isArray(facilities) ? facilities : [],
+            routes: Array.isArray(routes) ? routes : [],
+            carbonRecords: Array.isArray(carbonRecords) ? carbonRecords : [],
+            loading: false,
+            error: null,
+          });
+        }
       } catch (err) {
         if (!cancelled) {
           setState({
             summary: null,
             analytics: null,
+            wasteRecords: [],
+            facilities: [],
+            routes: [],
+            carbonRecords: [],
             loading: false,
             error: err instanceof Error ? err.message : "Failed to load dashboard data",
           });
@@ -45,3 +85,4 @@ export function useDashboardData() {
 
   return state;
 }
+

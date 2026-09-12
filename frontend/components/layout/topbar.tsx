@@ -1,14 +1,30 @@
 "use client";
 
-import { Bell, Leaf, Menu, Search } from "lucide-react";
+import { Bell, Leaf, Menu, Search, ShieldCheck, Sprout, Building2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import type { User } from "@/types";
+import { Badge } from "@/components/ui/badge";
+import type { User, UserRole } from "@/types";
 
-const ROLE_LABEL: Record<User["role"], string> = {
-  ADMIN: "Administrator",
-  WASTE_GENERATOR: "Waste Generator",
-  FACILITY_OPERATOR: "Facility Operator",
+const ROLE_CONFIG: Record<
+  UserRole,
+  { label: string; icon: typeof ShieldCheck; badgeClass: string }
+> = {
+  ADMIN: {
+    label: "Admin",
+    icon: ShieldCheck,
+    badgeClass: "bg-primary/15 text-primary border-primary/30",
+  },
+  WASTE_GENERATOR: {
+    label: "Waste Generator",
+    icon: Sprout,
+    badgeClass: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border-emerald-500/30",
+  },
+  FACILITY_OPERATOR: {
+    label: "Facility Operator",
+    icon: Building2,
+    badgeClass: "bg-blue-500/15 text-blue-700 dark:text-blue-400 border-blue-500/30",
+  },
 };
 
 export function Topbar({
@@ -20,6 +36,9 @@ export function Topbar({
   onLogout: () => void;
   onMenuClick: () => void;
 }) {
+  const roleConfig = user ? ROLE_CONFIG[user.role] || ROLE_CONFIG.ADMIN : ROLE_CONFIG.ADMIN;
+  const RoleIcon = roleConfig.icon;
+
   return (
     <header className="flex h-16 shrink-0 items-center justify-between border-b border-border bg-card px-4 md:px-6">
       <div className="flex items-center gap-2">
@@ -31,7 +50,7 @@ export function Topbar({
         >
           <Menu className="h-5 w-5" />
         </button>
-        <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
+        <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-xs">
           <Leaf className="h-5 w-5" />
         </div>
         <span className="hidden text-sm font-semibold text-foreground sm:inline">
@@ -56,8 +75,17 @@ export function Topbar({
         {user && (
           <div className="flex items-center gap-3 border-l border-border pl-4">
             <div className="text-right">
-              <p className="text-sm font-medium leading-none text-foreground">{user.name}</p>
-              <p className="mt-1 text-xs text-muted-foreground">{ROLE_LABEL[user.role]}</p>
+              <div className="flex items-center justify-end gap-1.5">
+                <p className="text-sm font-medium leading-none text-foreground">{user.name}</p>
+                <Badge
+                  variant="outline"
+                  className={`text-[10px] py-0 px-1.5 gap-1 font-medium ${roleConfig.badgeClass}`}
+                >
+                  <RoleIcon className="h-2.5 w-2.5" />
+                  {roleConfig.label}
+                </Badge>
+              </div>
+              <p className="mt-1 text-xs text-muted-foreground">{user.email}</p>
             </div>
             <Button variant="outline" size="sm" onClick={onLogout}>
               Sign out
@@ -68,3 +96,4 @@ export function Topbar({
     </header>
   );
 }
+

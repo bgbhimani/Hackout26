@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Leaf } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -91,6 +92,13 @@ export default function LoginPage() {
                 {submitting ? "Signing in..." : "Sign In"}
               </Button>
             </form>
+
+            <div className="mt-4 pt-4 border-t border-border text-center text-xs text-muted-foreground">
+              Don&apos;t have an account?{" "}
+              <Link href="/signup" className="font-semibold text-primary hover:underline">
+                Sign Up as Generator or Facility
+              </Link>
+            </div>
           </CardContent>
         </Card>
 
