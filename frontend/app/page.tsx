@@ -84,8 +84,8 @@ const SHOWCASE = [
     reverse: true,
   },
   {
-    image: "/images/punjab-tractor.jpg",
-    alt: "Tractor collecting crop residue in a Punjab field",
+    image: "/images/route-collection-truck.jpg",
+    alt: "Aerial view of a truck driving down a rural collection route",
     eyebrow: "Route",
     title: "One truck, the optimal stop order, every time",
     desc: "A real constraint solver - not a heuristic - decides which stops fit under vehicle and facility capacity, and reports honestly when something has to be dropped.",
