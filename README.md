@@ -2,7 +2,9 @@
 
 **Team:** Gentalmen (4 members) · **Event:** HackOut'26, DAIICT
 **Theme:** Circular Carbon Ecosystem
-**Status:** Phase 1 (Foundation) and Phase 2 (Core Data) complete and verified against a live Neon Postgres+PostGIS database. See [docs/architecture.md](docs/architecture.md) for the full phase plan.
+**Status:** Phases 1–8 of 10 complete and verified against a live Neon Postgres+PostGIS database.
+**For the complete reference (roles, features, full database schema, full API list, algorithms, data
+grounding) see [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md).** See [docs/architecture.md](docs/architecture.md) for the full phase plan.
 
 ## Problem Statement
 
@@ -104,7 +106,14 @@ are shown on the login page itself.
       (waste type / generator type / facility type / status), legend, summary cards
 - [x] Smart Matching: transparent weighted scoring (compatibility/distance/capacity/utilization),
       real PostGIS `ST_Distance` geodesic distances, persisted + re-runnable recommendations
-- [ ] Phases 6–10 — see [docs/architecture.md](docs/architecture.md)
+- [x] Route Optimization: real Google OR-Tools CVRP, single-vehicle, capacity constraints, drop-and-report
+      when stops don't fit, route polylines drawn on both the Routes page and the main Network Map
+- [x] AI Waste Forecast: Random Forest baseline + XGBoost final model, time-based train/test split (not
+      random), real confidence score from ensemble prediction spread — see [docs/ml.md](docs/ml.md)
+- [x] Carbon Impact: modular 4-function calculation engine, real PostGIS distance for transport emissions,
+      route-specific mechanisms (biochar sequestration vs. biogas/biomass avoided-emissions) — see
+      [docs/carbon-methodology.md](docs/carbon-methodology.md)
+- [ ] Phases 9–10 — see [docs/architecture.md](docs/architecture.md)
 
 ### Run it yourself right now
 

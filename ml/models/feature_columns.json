@@ -1,0 +1,11 @@
+{
+  "columns": [
+    "waste_type_enc",
+    "generator_type_enc",
+    "district_enc",
+    "season_enc",
+    "month",
+    "previous_quantity",
+    "rolling_avg_3"
+  ]
+}

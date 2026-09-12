@@ -10,6 +10,7 @@ from app.constants.enums import FacilityType
 from app.database.base import Base
 
 if TYPE_CHECKING:
+    from app.models.facility import Facility
     from app.models.waste_record import WasteRecord
 
 
@@ -26,6 +27,14 @@ class CarbonRecord(Base):
     waste_record_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), ForeignKey("waste_records.id", ondelete="CASCADE"), nullable=False, index=True
     )
+    # Added alongside conversion_type (not part of the original schema list)
+    # because "Carbon impact by facility" - a required dashboard chart -
+    # cannot be attributed to a specific facility from conversion_type
+    # (BIOCHAR/BIOGAS/BIOMASS_CONVERSION) alone; several facilities can
+    # share a type. See docs/carbon-methodology.md.
+    facility_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("facilities.id", ondelete="CASCADE"), nullable=False, index=True
+    )
     waste_quantity_tonnes: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
     conversion_type: Mapped[FacilityType] = mapped_column(
         Enum(FacilityType, name="facility_type", create_type=False), nullable=False
@@ -40,3 +49,12 @@ class CarbonRecord(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
     waste_record: Mapped["WasteRecord"] = relationship(back_populates="carbon_records")
+    facility: Mapped["Facility"] = relationship()
+
+    @property
+    def facility_name(self) -> str:
+        return self.facility.name
+
+    @property
+    def waste_type(self):
+        return self.waste_record.waste_type

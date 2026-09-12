@@ -40,7 +40,7 @@ TARGET_COLUMN = "quantity_tonnes"
 TEST_YEAR = 2025
 
 
-def _season_from_month(month: int) -> str:
+def season_from_month(month: int) -> str:
     """Indian agricultural seasons - matches the real Gujarat crop calendar
     documented in data/ml-data-research.md (Kharif sowing Jun-Jul, harvest
     into Oct; Rabi sowing Oct-Dec, harvest Mar-Apr)."""
@@ -72,7 +72,7 @@ def build_features(df: pd.DataFrame, encoders: dict[str, LabelEncoder] | None = 
     live/prediction-time data would silently assign different integer codes
     than training used, corrupting every downstream prediction."""
     df = df.copy()
-    df["season"] = df["month"].apply(_season_from_month)
+    df["season"] = df["month"].apply(season_from_month)
 
     # Lag/rolling features, computed per generator+waste_type series, sorted
     # chronologically. shift(1) happens BEFORE rolling() - rolling on the

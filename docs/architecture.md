@@ -47,9 +47,9 @@ rather than application-level haversine math.
 | 3 | Dashboard: KPIs + charts wired to real backend aggregation endpoints | **Done** |
 | 4 | GIS: interactive map, generator/facility markers, filters | **Done** |
 | 5 | Smart Matching: transparent, weighted scoring engine, real PostGIS distances | **Done** |
-| 6 | Route Optimization: OR-Tools CVRP, single vehicle | Pending |
-| 7 | ML: Random Forest baseline → XGBoost, time-based split, `/api/forecast` | Pending |
-| 8 | Carbon: modular calculation service, methodology notes on every record | Pending |
+| 6 | Route Optimization: OR-Tools CVRP, single vehicle | **Done** |
+| 7 | ML: Random Forest baseline → XGBoost, time-based split, `/api/forecast` | **Done** - see [docs/ml.md](ml.md) |
+| 8 | Carbon: modular calculation service, methodology notes on every record | **Done** - see [docs/carbon-methodology.md](carbon-methodology.md) |
 | 9 | Full integration: Waste → Forecast → Match → Route → Carbon as one traceable flow | Pending |
 | 10 | Polish: responsive/accessibility pass, tests, full documentation, deployment | Pending |
 

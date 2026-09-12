@@ -81,6 +81,40 @@ export interface FacilityRecommendation {
   score_breakdown: ScoreBreakdown;
 }
 
+export interface CarbonRecord {
+  id: string;
+  waste_record_id: string;
+  facility_id: string;
+  facility_name: string;
+  waste_type: WasteType;
+  waste_quantity_tonnes: number;
+  conversion_type: FacilityType;
+  conversion_output_tonnes: number;
+  carbon_content_percent: number;
+  estimated_sequestered_co2_tonnes: number;
+  transport_emissions_tonnes: number;
+  net_co2_impact_tonnes: number;
+  methodology_note: string;
+  created_at: string;
+}
+
+export interface ForecastResult {
+  predicted_quantity_tonnes: number;
+  confidence: number;
+  model: string;
+}
+
+export interface ForecastRecord {
+  id: string;
+  generator_id: string;
+  waste_type: WasteType;
+  forecast_date: string;
+  predicted_quantity_tonnes: number;
+  confidence: number;
+  model_name: string;
+  created_at: string;
+}
+
 export interface RouteStop {
   stop_order: number;
   generator_id: string;

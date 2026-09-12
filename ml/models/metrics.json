@@ -1,0 +1,20 @@
+{
+  "trained_at_rows": {
+    "train": 754,
+    "test": 154
+  },
+  "test_year": 2025,
+  "random_forest": {
+    "model": "Random Forest (baseline)",
+    "mae": 10.093,
+    "rmse": 15.004,
+    "r2": 0.959
+  },
+  "xgboost": {
+    "model": "XGBoost (final)",
+    "mae": 9.486,
+    "rmse": 14.005,
+    "r2": 0.964
+  },
+  "winner_by_mae": "XGBoost"
+}
