@@ -17,8 +17,8 @@ venv/
 backend/.env
 
 # ML artifacts
-ml/models/*.pkl
-ml/models/*.joblib
+# ml/models/*.pkl
+# ml/models/*.joblib
 
 # OS / editor
 .DS_Store

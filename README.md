@@ -86,6 +86,24 @@ npm run dev
 Visit `http://localhost:3000` — it redirects to `/login`. Demo accounts and the shared demo password
 are shown on the login page itself.
 
+## Running Tests
+
+```bash
+# Backend unit tests (pure calculation logic - matching scores, carbon math,
+# auth/JWT - none of these touch the shared live database)
+cd backend && .venv\Scripts\activate && python -m pytest tests/ -v
+
+# ML pipeline tests (feature engineering correctness, including a regression
+# guard for the exact grouped-rolling-average leakage bug found during
+# development - see docs/ml.md)
+cd ml && python -m pytest tests/ -v
+```
+
+40 tests, all passing: 30 backend (security/JWT, matching engine scoring math, carbon calculation math)
++ 10 ML (season derivation, prediction output format, training data integrity, the leakage-bug regression
+guard). API-level integration tests against a live database are intentionally out of scope for this MVP —
+documented as a known limitation rather than silently skipped.
+
 ## Current status (Phase 1 of 10)
 
 - [x] Monorepo structure
@@ -113,7 +131,15 @@ are shown on the login page itself.
 - [x] Carbon Impact: modular 4-function calculation engine, real PostGIS distance for transport emissions,
       route-specific mechanisms (biochar sequestration vs. biogas/biomass avoided-emissions) — see
       [docs/carbon-methodology.md](docs/carbon-methodology.md)
-- [ ] Phases 9–10 — see [docs/architecture.md](docs/architecture.md)
+- [x] Full Integration: Match → Route → Carbon connected via deep-linking, so a recommendation carries
+      its facility forward into Route Optimization, and a route stop carries its waste record + facility
+      forward into an auto-calculated Carbon Impact - no re-selecting the same thing three times
+- [x] Waste Generators and Facilities management screens: full CRUD via accessible modal forms
+      (Radix Dialog - focus trap, ESC to close, proper ARIA), role-gated actions (only permitted roles see
+      Add/Edit/Delete), client-side + server-side validation
+- [x] Test suite: 40 tests (30 backend unit tests + 10 ML pipeline tests), all passing
+- [ ] Deferred, disclosed rather than silently skipped: a full accessibility audit, a deployed public URL,
+      and API-level integration tests against a live database — see "Known, deliberate limitations" below
 
 ### Run it yourself right now
 
@@ -135,6 +161,14 @@ Open `http://localhost:8000/docs` for interactive API docs (try `/api/generators
   that require a Next.js 16 major-version upgrade to fully clear; none are exploitable in this app's own
   build (no untrusted CSS/source-map input), so we're deferring that upgrade rather than risking breakage
   mid-hackathon.
+- No API-level integration tests against a live database — the 40-test suite covers pure calculation
+  logic (matching scores, carbon math, JWT/auth, ML feature engineering) which is fast, safe, and never
+  touches the shared Neon database; endpoint-level tests would need a dedicated test database this
+  hackathon's timeline didn't allocate for.
+- No full accessibility audit (screen-reader pass, WCAG contrast check) — semantic HTML, labelled form
+  fields, and Radix's built-in focus-trap/ARIA (Dialog) are in place, but not independently audited.
+- Not deployed to a public URL — runs locally against the live Neon database; Vercel/Render deployment
+  steps are documented but not executed for this submission.
 
 ---
 

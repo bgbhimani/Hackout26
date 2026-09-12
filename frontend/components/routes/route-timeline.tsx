@@ -1,5 +1,7 @@
-import { Factory, MapPin } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Factory, Leaf, MapPin } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
 import type { OptimizedRoute } from "@/types";
 
 export function RouteTimeline({ route }: { route: OptimizedRoute }) {
@@ -10,6 +12,9 @@ export function RouteTimeline({ route }: { route: OptimizedRoute }) {
       detail: `${s.quantity_tonnes} t`,
       icon: MapPin,
       isFinal: false,
+      // Carbon impact is calculated per waste_record + facility pair - link
+      // using this stop's first waste record (Route → Carbon integration, Phase 9).
+      carbonLink: `/carbon?wasteId=${s.waste_record_ids[0]}&facilityId=${route.facility_id}`,
     })),
     {
       order: route.stops.length + 1,
@@ -17,6 +22,7 @@ export function RouteTimeline({ route }: { route: OptimizedRoute }) {
       detail: `${route.total_waste_tonnes} t total delivered`,
       icon: Factory,
       isFinal: true,
+      carbonLink: null,
     },
   ];
 
@@ -37,12 +43,23 @@ export function RouteTimeline({ route }: { route: OptimizedRoute }) {
               </div>
               {!isLast && <div className="my-1 h-8 w-px bg-border" />}
             </div>
-            <div className="pb-6">
-              <div className="flex items-center gap-1.5">
-                <Icon className="h-3.5 w-3.5 text-muted-foreground" />
-                <p className="font-medium text-foreground">{item.name}</p>
+            <div className="flex flex-1 items-start justify-between gap-2 pb-6">
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <Icon className="h-3.5 w-3.5 text-muted-foreground" />
+                  <p className="font-medium text-foreground">{item.name}</p>
+                </div>
+                <p className="text-xs text-muted-foreground">{item.detail}</p>
               </div>
-              <p className="text-xs text-muted-foreground">{item.detail}</p>
+              {item.carbonLink && (
+                <Button asChild variant="ghost" size="sm" className="h-7 shrink-0 text-xs">
+                  <Link href={item.carbonLink}>
+                    <Leaf className="h-3 w-3" />
+                    Carbon Impact
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </Button>
+              )}
             </div>
           </div>
         );

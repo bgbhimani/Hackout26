@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
+import { useSearchParams } from "next/navigation";
 import { Route as RouteIcon, TriangleAlert, Truck, Weight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -32,6 +33,19 @@ const WASTE_TYPE_LABEL: Record<string, string> = {
 };
 
 export default function RoutesPage() {
+  return (
+    <Suspense fallback={<Skeleton className="h-64 w-full" />}>
+      <RoutesPageContent />
+    </Suspense>
+  );
+}
+
+function RoutesPageContent() {
+  const searchParams = useSearchParams();
+  const deepLinkedFacilityId = searchParams.get("facilityId");
+  const deepLinkedWasteId = searchParams.get("wasteId");
+  const hasAppliedDeepLink = useRef(false);
+
   const [facilities, setFacilities] = useState<Facility[]>([]);
   const [wasteRecords, setWasteRecords] = useState<WasteRecordWithGenerator[]>([]);
   const [loadingData, setLoadingData] = useState(true);
@@ -49,14 +63,19 @@ export default function RoutesPage() {
         if (cancelled) return;
         setFacilities(f);
         setWasteRecords(w.filter((r) => r.status === "AVAILABLE"));
-        if (f[0]) setFacilityId(f[0].id);
+        // Arriving from a Smart Matching recommendation (Match → Route
+        // integration, Phase 9) pre-selects that exact facility.
+        const preselected = deepLinkedFacilityId && f.some((fac) => fac.id === deepLinkedFacilityId);
+        if (preselected) setFacilityId(deepLinkedFacilityId!);
+        else if (f[0]) setFacilityId(f[0].id);
       })
       .catch((err) => !cancelled && setError(err instanceof Error ? err.message : "Failed to load data"))
       .finally(() => !cancelled && setLoadingData(false));
     return () => {
       cancelled = true;
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [deepLinkedFacilityId]);
 
   const selectedFacility = useMemo(() => facilities.find((f) => f.id === facilityId), [facilities, facilityId]);
 
@@ -71,11 +90,23 @@ export default function RoutesPage() {
   // Default selection: everything compatible, and a vehicle capacity that
   // comfortably covers it - so the optimizer has a realistic "everything
   // fits" starting point, and the user can lower capacity to see stops drop.
+  // EXCEPT the first time we arrive via a Matching deep link: start with
+  // just that one waste record selected, so the route visibly starts from
+  // "the thing you just matched" rather than defaulting to everything.
   useEffect(() => {
-    setSelectedWasteIds(new Set(compatibleWaste.map((r) => r.id)));
+    const deepLinkedRecordIsCompatible =
+      !hasAppliedDeepLink.current && deepLinkedWasteId && compatibleWaste.some((r) => r.id === deepLinkedWasteId);
+
+    if (deepLinkedRecordIsCompatible) {
+      setSelectedWasteIds(new Set([deepLinkedWasteId!]));
+      hasAppliedDeepLink.current = true;
+    } else {
+      setSelectedWasteIds(new Set(compatibleWaste.map((r) => r.id)));
+    }
     const total = compatibleWaste.reduce((sum, r) => sum + r.quantity_tonnes, 0);
     setVehicleCapacity(total > 0 ? Math.ceil(total).toString() : "300");
     setRoute(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [compatibleWaste]);
 
   function toggleWaste(id: string) {

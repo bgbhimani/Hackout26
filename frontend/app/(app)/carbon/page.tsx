@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Factory, Leaf, Package, Truck, Weight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -27,6 +28,19 @@ const WASTE_TYPE_LABEL: Record<string, string> = {
 };
 
 export default function CarbonPage() {
+  return (
+    <Suspense fallback={<Skeleton className="h-64 w-full" />}>
+      <CarbonPageContent />
+    </Suspense>
+  );
+}
+
+function CarbonPageContent() {
+  const searchParams = useSearchParams();
+  const deepLinkedWasteId = searchParams.get("wasteId");
+  const deepLinkedFacilityId = searchParams.get("facilityId");
+  const hasAutoCalculated = useRef(false);
+
   const [wasteRecords, setWasteRecords] = useState<WasteRecordWithGenerator[]>([]);
   const [facilities, setFacilities] = useState<Facility[]>([]);
   const [records, setRecords] = useState<CarbonRecord[]>([]);
@@ -46,7 +60,11 @@ export default function CarbonPage() {
     setWasteRecords(w.filter((r) => r.status === "AVAILABLE" || r.status === "COLLECTED"));
     setFacilities(f);
     setRecords(c);
-    if (w[0]) setWasteId(w[0].id);
+    // Arriving from Route Optimization (Route → Carbon integration, Phase 9)
+    // pre-selects the exact waste record that was routed.
+    const preselected = deepLinkedWasteId && w.some((r) => r.id === deepLinkedWasteId);
+    if (preselected) setWasteId(deepLinkedWasteId!);
+    else if (w[0]) setWasteId(w[0].id);
   }
 
   useEffect(() => {
@@ -67,7 +85,10 @@ export default function CarbonPage() {
   );
 
   useEffect(() => {
-    setFacilityId(compatibleFacilities[0]?.id ?? "");
+    const deepLinkedIsCompatible =
+      deepLinkedFacilityId && compatibleFacilities.some((f) => f.id === deepLinkedFacilityId);
+    setFacilityId(deepLinkedIsCompatible ? deepLinkedFacilityId! : (compatibleFacilities[0]?.id ?? ""));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [compatibleFacilities]);
 
   async function handleCalculate() {
@@ -87,6 +108,23 @@ export default function CarbonPage() {
       setCalculating(false);
     }
   }
+
+  // Arriving via a full deep link (both waste record and facility already
+  // chosen upstream, e.g. from a route's timeline) calculates immediately -
+  // completing the Match → Route → Carbon chain in one click, not three.
+  useEffect(() => {
+    if (
+      !hasAutoCalculated.current &&
+      deepLinkedWasteId &&
+      deepLinkedFacilityId &&
+      wasteId === deepLinkedWasteId &&
+      facilityId === deepLinkedFacilityId
+    ) {
+      hasAutoCalculated.current = true;
+      handleCalculate();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [wasteId, facilityId, deepLinkedWasteId, deepLinkedFacilityId]);
 
   const totals = useMemo(
     () => ({

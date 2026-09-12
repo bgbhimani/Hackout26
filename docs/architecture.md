@@ -50,8 +50,8 @@ rather than application-level haversine math.
 | 6 | Route Optimization: OR-Tools CVRP, single vehicle | **Done** |
 | 7 | ML: Random Forest baseline → XGBoost, time-based split, `/api/forecast` | **Done** - see [docs/ml.md](ml.md) |
 | 8 | Carbon: modular calculation service, methodology notes on every record | **Done** - see [docs/carbon-methodology.md](carbon-methodology.md) |
-| 9 | Full integration: Waste → Forecast → Match → Route → Carbon as one traceable flow | Pending |
-| 10 | Polish: responsive/accessibility pass, tests, full documentation, deployment | Pending |
+| 9 | Full integration: Waste → Forecast → Match → Route → Carbon as one traceable flow | **Done** |
+| 10 | Waste/Facilities CRUD screens, backend + ML test suites (40 tests) | **Done** — deployment and a full accessibility audit deliberately deferred, see README |
 
 Each phase is verified (imports/builds cleanly, migrations apply, existing functionality still works)
 before the next begins - see the Phase 1 verification log in the project history for the standard this

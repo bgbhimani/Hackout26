@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -24,6 +25,17 @@ const WASTE_TYPE_LABEL: Record<string, string> = {
 };
 
 export default function MatchingPage() {
+  return (
+    <Suspense fallback={<Skeleton className="h-64 w-full" />}>
+      <MatchingPageContent />
+    </Suspense>
+  );
+}
+
+function MatchingPageContent() {
+  const searchParams = useSearchParams();
+  const deepLinkedWasteId = searchParams.get("wasteId");
+
   const [wasteRecords, setWasteRecords] = useState<WasteRecordWithGenerator[]>([]);
   const [loadingRecords, setLoadingRecords] = useState(true);
   const [selectedId, setSelectedId] = useState<string>("");
@@ -38,15 +50,20 @@ export default function MatchingPage() {
         if (cancelled) return;
         const available = records.filter((r) => r.status === "AVAILABLE");
         setWasteRecords(available);
+        // Deep-linked waste id (e.g. from a future Waste page "Match this" action)
+        // takes priority over the default first-item selection.
+        const preselected = deepLinkedWasteId && available.some((r) => r.id === deepLinkedWasteId);
         const first = available[0];
-        if (first) setSelectedId(first.id);
+        if (preselected) setSelectedId(deepLinkedWasteId!);
+        else if (first) setSelectedId(first.id);
       })
       .catch((err) => !cancelled && setError(err instanceof Error ? err.message : "Failed to load waste records"))
       .finally(() => !cancelled && setLoadingRecords(false));
     return () => {
       cancelled = true;
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [deepLinkedWasteId]);
 
   const selectedRecord = useMemo(() => wasteRecords.find((r) => r.id === selectedId), [wasteRecords, selectedId]);
 
@@ -150,7 +167,7 @@ export default function MatchingPage() {
             by score
           </p>
           {recommendations.map((rec, i) => (
-            <RecommendationCard key={rec.facility_id} rec={rec} rank={i + 1} />
+            <RecommendationCard key={rec.facility_id} rec={rec} rank={i + 1} wasteRecordId={selectedId} />
           ))}
         </div>
       )}
