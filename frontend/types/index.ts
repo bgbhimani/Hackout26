@@ -20,7 +20,13 @@ export type WasteType =
 
 export type WasteStatus = "AVAILABLE" | "PENDING" | "COLLECTED" | "PROCESSED";
 
-export type MatchStatus = "RECOMMENDED" | "ACCEPTED" | "REJECTED";
+export type MatchStatus = "REQUESTED" | "COUNTERED" | "ACCEPTED" | "REJECTED" | "WITHDRAWN";
+
+/** Which side of a Match negotiation made a given offer/response. */
+export type OfferParty = "GENERATOR" | "FACILITY";
+
+/** One entry in a Match's negotiation thread (see MatchOffer). */
+export type OfferAction = "REQUEST" | "COUNTER" | "ACCEPT" | "REJECT" | "WITHDRAW";
 
 export type FacilityType = "BIOCHAR" | "BIOGAS" | "BIOMASS_CONVERSION";
 
@@ -107,14 +113,44 @@ export interface FacilityRecommendation {
   estimated_transport_cost: number;
   reasons: string[];
   score_breakdown: ScoreBreakdown;
-  /** The persisted Match row this recommendation was saved as (always
-   * RECOMMENDED at this point) - only the facility operator can act on it,
-   * via POST /api/matching/{match_id}/accept|reject. */
+  /** A recommendation is only a preview - POST /recommend never persists
+   * anything. Both non-null only if a request has already been sent (or
+   * previously sent) to this facility for this waste record. */
   match_id: string | null;
+  match_status: MatchStatus | null;
+}
+
+/** What POST /api/matching/request needs - the explicit "Send Request"
+ * action on a recommendation card. */
+export interface SendRequestPayload {
+  waste_record_id: string;
+  facility_id: string;
+  offer_price?: number | null;
+  offer_pickup_date?: string | null;
+  note?: string | null;
+}
+
+/** Either side can propose different terms while a match is REQUESTED or
+ * COUNTERED - POST /api/matching/{match_id}/counter. */
+export interface CounterOfferPayload {
+  offer_price?: number | null;
+  offer_pickup_date?: string | null;
+  note?: string | null;
+}
+
+/** One entry in a match's negotiation thread (GET /{match_id}/offers). */
+export interface MatchOfferOut {
+  id: string;
+  offered_by: OfferParty;
+  action: OfferAction;
+  offer_price: number | null;
+  offer_pickup_date: string | null;
+  note: string | null;
+  created_at: string;
 }
 
 /** A persisted Match row (GET /api/matching/{waste_id}, and the accept/
- * reject endpoints' response). */
+ * reject/counter/withdraw endpoints' response). */
 export interface MatchOut {
   id: string;
   waste_record_id: string;
@@ -125,17 +161,26 @@ export interface MatchOut {
   estimated_transport_cost: number;
   reasons: string[];
   status: MatchStatus;
+  last_offer_by: OfferParty;
+  offer_price: number | null;
+  offer_pickup_date: string | null;
+  offer_note: string | null;
+  offer_round: number;
   created_at: string;
 }
 
-/** MatchOut plus the waste-side context a facility operator needs to decide
- * whether to accept - who's offering what. Returned by GET /api/matching/
- * pending (RECOMMENDED, awaiting a decision) and GET /api/matching/accepted
- * (ACCEPTED, awaiting a route). */
+/** MatchOut plus the context both sides of a negotiation need - who's
+ * offering what, and whose turn it is to respond. Returned by GET
+ * /api/matching/pending (a facility operator's incoming requests), GET
+ * /api/matching/accepted, and GET /api/matching/my-requests (a generator's
+ * sent requests). */
 export interface PendingMatchOut extends MatchOut {
   waste_type: WasteType;
   quantity_tonnes: number;
   generator_name: string;
+  facility_type: FacilityType;
+  /** True when it's the CALLER's turn to accept/reject/counter. */
+  can_respond: boolean;
 }
 
 export interface CarbonRecord {

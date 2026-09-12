@@ -18,6 +18,14 @@ MATCHING_WEIGHTS = {
 # logistics past this range. Linear decay from 0km (100) to this (0).
 MAX_MATCHING_DISTANCE_KM = 150.0
 
+# Hard cutoff: candidates beyond this are dropped from /recommend entirely,
+# not merely floored to a 0 distance score. Without this, a facility on the
+# other side of the country (or a generator with a garbled lat/lng) still
+# shows up ranked by its other three components, which reads as nonsensical
+# ("3,099.8 km away, 66.9% match"). Set generously above MAX_MATCHING_DISTANCE_KM
+# so it only excludes genuinely implausible pairings, not merely long hauls.
+MAX_CANDIDATE_DISTANCE_KM = MAX_MATCHING_DISTANCE_KM * 3
+
 # Only ACTIVE facilities are ever recommended - a facility under
 # maintenance or marked inactive cannot actually accept a delivery.
 MAX_RECOMMENDATIONS = 10

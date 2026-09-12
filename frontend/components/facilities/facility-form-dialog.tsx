@@ -14,6 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SelectNative } from "@/components/ui/select-native";
+import { MapsLinkLocator } from "@/components/shared/maps-link-locator";
 import { apiFetch, ApiError } from "@/lib/api";
 import type { Facility, FacilityStatus, FacilityType, WasteType } from "@/types";
 
@@ -287,6 +288,8 @@ export function FacilityFormDialog({
             <Input id="address" required value={form.address} onChange={(e) => set("address", e.target.value)} />
           </div>
 
+          <MapsLinkLocator onLocated={(lat, lng) => setForm((f) => ({ ...f, latitude: lat, longitude: lng }))} />
+
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label htmlFor="latitude">Latitude</Label>
@@ -311,6 +314,9 @@ export function FacilityFormDialog({
               />
             </div>
           </div>
+          <p className="-mt-2 text-xs text-muted-foreground">
+            Auto-filled from the link above, adjust here if needed.
+          </p>
 
           {error && <p className="text-sm text-destructive">{error}</p>}
 

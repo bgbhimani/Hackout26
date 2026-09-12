@@ -15,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SelectNative } from "@/components/ui/select-native";
+import { MapsLinkLocator } from "@/components/shared/maps-link-locator";
 import { apiFetch, ApiError } from "@/lib/api";
 import type { Generator, GeneratorType } from "@/types";
 
@@ -212,6 +213,8 @@ export function GeneratorFormDialog({
             />
           </div>
 
+          <MapsLinkLocator onLocated={(lat, lng) => setForm((f) => ({ ...f, latitude: lat, longitude: lng }))} />
+
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label htmlFor="latitude">Latitude (°N)</Label>
@@ -238,6 +241,9 @@ export function GeneratorFormDialog({
               />
             </div>
           </div>
+          <p className="-mt-2 text-xs text-muted-foreground">
+            Auto-filled from the link above, adjust here if needed.
+          </p>
 
           {editing && (
             <div className="flex items-center gap-2 rounded-md bg-muted/50 p-2.5 text-xs text-muted-foreground">

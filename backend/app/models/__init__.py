@@ -9,6 +9,7 @@ from app.models.carbon_record import CarbonRecord
 from app.models.facility import Facility
 from app.models.forecast import Forecast
 from app.models.match import Match
+from app.models.match_offer import MatchOffer
 from app.models.route import Route
 from app.models.route_stop import RouteStop
 from app.models.user import User
@@ -20,6 +21,7 @@ __all__ = [
     "Facility",
     "Forecast",
     "Match",
+    "MatchOffer",
     "Route",
     "RouteStop",
     "User",

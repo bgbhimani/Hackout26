@@ -73,6 +73,20 @@ export default function MapPage() {
     [facilities, filters]
   );
 
+  // A filter should behave the same way everywhere - narrowing everything
+  // down consistently, no exceptions. Selecting "Biochar" and still seeing a
+  // Biogas route (because its endpoints were pinned visible) is just as
+  // confusing as the route silently vanishing with no explanation - both
+  // read as "this is broken." So routes ARE filtered by whether their
+  // facility passes the active filter, and routeVisibility below tells the
+  // UI *why* a route disappeared, instead of leaving that unexplained.
+  const filteredRoutes = useMemo(
+    () => routes.filter((r) => filteredFacilities.some((f) => f.id === r.facility_id)),
+    [routes, filteredFacilities]
+  );
+  const routeVisibility: "none-exist" | "hidden-by-filter" | "visible" =
+    routes.length === 0 ? "none-exist" : filteredRoutes.length === 0 ? "hidden-by-filter" : "visible";
+
   const availableWasteTonnes = useMemo(
     () =>
       filteredWasteRecords
@@ -112,11 +126,16 @@ export default function MapPage() {
           wasteSources={filteredGenerators.length}
           availableWasteTonnes={Math.round(availableWasteTonnes)}
           facilities={filteredFacilities.length}
-          activeRoutes={routes.length}
+          activeRoutes={filteredRoutes.length}
         />
       )}
 
-      <MapFilters value={filters} onChange={setFilters} />
+      <MapFilters
+        value={filters}
+        onChange={setFilters}
+        routeCount={filteredRoutes.length}
+        routeVisibility={routeVisibility}
+      />
       <MapLegend />
 
       <Card className="min-h-[520px] flex-1 overflow-hidden p-0">
@@ -128,7 +147,7 @@ export default function MapPage() {
               generators={filteredGenerators}
               facilities={filteredFacilities}
               wasteByGenerator={wasteByGenerator}
-              routes={routes}
+              routes={filteredRoutes}
               showRoutes={filters.showRoutes}
             />
           </div>

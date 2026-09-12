@@ -12,7 +12,7 @@ import { SelectNative } from "@/components/ui/select-native";
 import { Skeleton } from "@/components/ui/skeleton";
 import { RecommendationCard } from "@/components/matching/recommendation-card";
 import { apiFetch, ApiError } from "@/lib/api";
-import type { FacilityRecommendation, WasteRecordWithGenerator } from "@/types";
+import type { FacilityRecommendation, MatchStatus, WasteRecordWithGenerator } from "@/types";
 
 const WASTE_TYPE_LABEL: Record<string, string> = {
   RICE_STRAW: "Rice Straw",
@@ -45,6 +45,11 @@ function MatchingPageContent() {
 
   useEffect(() => {
     let cancelled = false;
+    // Deliberately network-wide, per explicit user request - the picker
+    // lists every AVAILABLE waste record regardless of which generator
+    // owns it. Sending a request for any of them is expected to work (the
+    // backend no longer restricts /api/matching/request to the caller's
+    // own generator - see matching_service.send_request).
     apiFetch<WasteRecordWithGenerator[]>("/api/waste")
       .then((records) => {
         if (cancelled) return;
@@ -66,6 +71,14 @@ function MatchingPageContent() {
   }, [deepLinkedWasteId]);
 
   const selectedRecord = useMemo(() => wasteRecords.find((r) => r.id === selectedId), [wasteRecords, selectedId]);
+
+  function handleRequestSent(facilityId: string, matchId: string, status: MatchStatus) {
+    setRecommendations((prev) =>
+      prev
+        ? prev.map((r) => (r.facility_id === facilityId ? { ...r, match_id: matchId, match_status: status } : r))
+        : prev
+    );
+  }
 
   async function handleFindFacility() {
     if (!selectedId) return;
@@ -167,7 +180,13 @@ function MatchingPageContent() {
             by score
           </p>
           {recommendations.map((rec, i) => (
-            <RecommendationCard key={rec.facility_id} rec={rec} rank={i + 1} />
+            <RecommendationCard
+              key={rec.facility_id}
+              rec={rec}
+              rank={i + 1}
+              wasteRecordId={selectedId}
+              onRequestSent={handleRequestSent}
+            />
           ))}
         </div>
       )}

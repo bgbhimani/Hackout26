@@ -57,3 +57,17 @@ export async function apiFetch<T>(path: string, options: RequestInit = {}): Prom
   if (res.status === 204) return undefined as T;
   return res.json() as Promise<T>;
 }
+
+/**
+ * Expands a shortened Google Maps link (maps.app.goo.gl/..., goo.gl/maps/...)
+ * to the real URL it redirects to, via the backend - browsers can't read a
+ * cross-origin redirect's final URL themselves. See
+ * lib/google-maps-link.ts for parsing the result into coordinates.
+ */
+export async function resolveMapsLink(url: string): Promise<string> {
+  const { resolved_url } = await apiFetch<{ resolved_url: string }>("/api/geocode/expand-url", {
+    method: "POST",
+    body: JSON.stringify({ url }),
+  });
+  return resolved_url;
+}

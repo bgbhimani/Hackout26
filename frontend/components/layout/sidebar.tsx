@@ -47,6 +47,7 @@ const GENERATOR_NAV: NavItem[] = [
   { href: "/waste", label: "Log Waste Batches", icon: Sprout, badge: "CRUD" },
   { href: "/forecast", label: "AI Yield Forecast", icon: TrendingUp, badge: "ML" },
   { href: "/matching", label: "Smart Matching", icon: Sparkles, badge: "AI Match" },
+  { href: "/matching/my-requests", label: "My Requests", icon: Inbox },
   { href: "/carbon", label: "Carbon Offsets", icon: Leaf },
 ];
 
@@ -54,7 +55,7 @@ const FACILITY_NAV: NavItem[] = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/map", label: "Operations Map", icon: MapIcon },
   { href: "/facilities", label: "Facility Management", icon: Factory, badge: "Capacity" },
-  { href: "/matching/pending", label: "Pending Requests", icon: Inbox },
+  { href: "/matching/requests", label: "Requests", icon: Inbox },
   { href: "/routes", label: "Logistics & Routes", icon: RouteIcon, badge: "OR-Tools" },
   { href: "/matching", label: "Feedstock Sourcing", icon: Sparkles, badge: "Intake" },
   { href: "/carbon", label: "Carbon Sequestration", icon: Leaf },
@@ -102,16 +103,20 @@ export function Sidebar({ className, open = true }: { className?: string; open?:
       ? FACILITY_NAV
       : ADMIN_NAV;
 
-  // A real count, not a fabricated badge: how many match requests are
-  // actually waiting on this facility operator right now. Only fetched for
-  // that role - a generator/admin has nothing to accept or reject here.
-  const [pendingCount, setPendingCount] = useState<number | null>(null);
+  // A real count, not a fabricated badge: how many negotiations actually
+  // need THIS user's action right now (can_respond), not just how many
+  // exist - a request awaiting the other side's response shouldn't nag
+  // either party to re-open it. Facility Operators poll their inbox,
+  // Waste Generators poll their sent requests; an admin has neither.
+  const [actionableCount, setActionableCount] = useState<number | null>(null);
+  const badgeHref = role === "FACILITY_OPERATOR" ? "/matching/requests" : "/matching/my-requests";
   useEffect(() => {
-    if (role !== "FACILITY_OPERATOR") return;
+    if (role !== "FACILITY_OPERATOR" && role !== "WASTE_GENERATOR") return;
+    const path = role === "FACILITY_OPERATOR" ? "/api/matching/pending" : "/api/matching/my-requests";
     let cancelled = false;
-    apiFetch<PendingMatchOut[]>("/api/matching/pending")
-      .then((matches) => !cancelled && setPendingCount(matches.length))
-      .catch(() => !cancelled && setPendingCount(null));
+    apiFetch<PendingMatchOut[]>(path)
+      .then((matches) => !cancelled && setActionableCount(matches.filter((m) => m.can_respond).length))
+      .catch(() => !cancelled && setActionableCount(null));
     return () => {
       cancelled = true;
     };
@@ -165,9 +170,9 @@ export function Sidebar({ className, open = true }: { className?: string; open?:
                 <Icon className="h-4 w-4 shrink-0" />
                 <span>{label}</span>
               </div>
-              {href === "/matching/pending" && pendingCount !== null && pendingCount > 0 ? (
+              {href === badgeHref && actionableCount !== null && actionableCount > 0 ? (
                 <Badge className="ml-auto px-1.5 py-0 text-[10px] font-semibold leading-tight">
-                  {pendingCount}
+                  {actionableCount}
                 </Badge>
               ) : (
                 badge && (

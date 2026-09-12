@@ -1,8 +1,14 @@
-import { CheckCircle2, Clock, TriangleAlert } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { CheckCircle2, Clock, Send, TriangleAlert, XCircle } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import type { FacilityRecommendation } from "@/types";
+import { OfferFormDialog, type OfferFormValues } from "@/components/matching/offer-form-dialog";
+import { apiFetch, ApiError } from "@/lib/api";
+import type { FacilityRecommendation, MatchStatus } from "@/types";
 
 const FACILITY_TYPE_LABEL: Record<string, string> = {
   BIOCHAR: "Biochar",
@@ -18,6 +24,14 @@ const WASTE_TYPE_LABEL: Record<string, string> = {
   FOOD_WASTE: "Food Waste",
   ORGANIC_WASTE: "Organic Waste",
   ANIMAL_MANURE: "Animal Manure",
+};
+
+const STATUS_META: Record<MatchStatus, { label: string; icon: typeof Clock }> = {
+  REQUESTED: { label: "Request sent — awaiting the facility's response", icon: Clock },
+  COUNTERED: { label: "Facility proposed different terms — respond from My Requests", icon: Clock },
+  ACCEPTED: { label: "Accepted — this facility has taken this batch", icon: CheckCircle2 },
+  REJECTED: { label: "Rejected by the facility", icon: XCircle },
+  WITHDRAWN: { label: "You withdrew this request", icon: XCircle },
 };
 
 function scoreTone(score: number): { badge: "default" | "accent" | "destructive"; bar: string } {
@@ -40,8 +54,32 @@ function BreakdownBar({ label, value }: { label: string; value: number }) {
   );
 }
 
-export function RecommendationCard({ rec, rank }: { rec: FacilityRecommendation; rank: number }) {
+export function RecommendationCard({
+  rec,
+  rank,
+  wasteRecordId,
+  onRequestSent,
+}: {
+  rec: FacilityRecommendation;
+  rank: number;
+  wasteRecordId: string;
+  /** Fires once the request is actually created, so the parent can update
+   * this card's status without waiting for a full re-search. */
+  onRequestSent: (facilityId: string, matchId: string, status: MatchStatus) => void;
+}) {
   const tone = scoreTone(rec.match_score);
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  async function handleSend(values: OfferFormValues) {
+    const match = await apiFetch<{ id: string; status: MatchStatus }>("/api/matching/request", {
+      method: "POST",
+      body: JSON.stringify({ waste_record_id: wasteRecordId, facility_id: rec.facility_id, ...values }),
+    });
+    onRequestSent(rec.facility_id, match.id, match.status);
+  }
+
+  const statusMeta = rec.match_status ? STATUS_META[rec.match_status] : null;
+  const StatusIcon = statusMeta?.icon;
 
   return (
     <Card>
@@ -93,7 +131,7 @@ export function RecommendationCard({ rec, rank }: { rec: FacilityRecommendation;
 
         <div className="space-y-1 border-t border-border pt-3">
           {rec.reasons.map((reason) => {
-            const isWarning = reason.toLowerCase().startsWith("limited") || reason.toLowerCase().startsWith("long");
+            const isWarning = reason.toLowerCase().startsWith("limited") || reason.toLowerCase().startsWith("long") || reason.toLowerCase().startsWith("well beyond");
             const Icon = isWarning ? TriangleAlert : CheckCircle2;
             return (
               <div key={reason} className="flex items-center gap-2 text-sm">
@@ -104,13 +142,30 @@ export function RecommendationCard({ rec, rank }: { rec: FacilityRecommendation;
           })}
         </div>
 
-        {rec.match_id && (
-          <div className="flex items-center gap-1.5 border-t border-border pt-3 text-xs text-muted-foreground">
-            <Clock className="h-3.5 w-3.5" />
-            Request sent — awaiting the facility operator to accept or reject
-          </div>
-        )}
+        <div className="border-t border-border pt-3">
+          {statusMeta ? (
+            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              {StatusIcon && <StatusIcon className="h-3.5 w-3.5" />}
+              {statusMeta.label}
+            </div>
+          ) : (
+            <Button size="sm" onClick={() => setDialogOpen(true)}>
+              <Send className="h-3.5 w-3.5" />
+              Send Request
+            </Button>
+          )}
+        </div>
       </CardContent>
+
+      <OfferFormDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        resetKey={rec.facility_id}
+        title={`Send request to ${rec.facility_name}`}
+        description="Optionally propose a price and pickup date - the facility can accept, reject, or counter your offer."
+        submitLabel="Send Request"
+        onSubmit={handleSend}
+      />
     </Card>
   );
 }

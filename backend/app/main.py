@@ -17,6 +17,7 @@ from app.api.carbon import router as carbon_router
 from app.api.dashboard import router as dashboard_router
 from app.api.facilities import router as facilities_router
 from app.api.forecast import router as forecast_router
+from app.api.geocode import router as geocode_router
 from app.api.generators import router as generators_router
 from app.api.matching import router as matching_router
 from app.api.routes import router as routes_router
@@ -75,3 +76,4 @@ app.include_router(matching_router)
 app.include_router(routes_router)
 app.include_router(forecast_router)
 app.include_router(carbon_router)
+app.include_router(geocode_router)

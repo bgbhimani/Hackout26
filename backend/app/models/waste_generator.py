@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import TYPE_CHECKING
 
 from geoalchemy2 import Geography
-from sqlalchemy import DateTime, Enum, String, func
+from sqlalchemy import DateTime, Enum, ForeignKey, String, func
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -32,6 +32,15 @@ class WasteGenerator(Base):
     # PostGIS geography point, SRID 4326 (WGS84 lat/lng) - geography (not geometry)
     # so that ST_Distance returns metres directly without a manual projection.
     location: Mapped[str] = mapped_column(Geography(geometry_type="POINT", srid=4326), nullable=False)
+    # The Waste Generator user who registered this entity (nullable: demo-
+    # seeded generators, or ones an ADMIN creates on someone's behalf, have
+    # no owner). Mirrors Facility.user_id - see that model's comment for why
+    # ON DELETE SET NULL rather than CASCADE. This is what lets a Waste
+    # Generator's map show their own location without showing everyone
+    # else's (see frontend/app/(app)/map/page.tsx).
+    user_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("users.id", ondelete="SET NULL"), nullable=True, index=True
+    )
 
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(

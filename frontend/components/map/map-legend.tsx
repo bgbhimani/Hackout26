@@ -12,13 +12,15 @@ function Swatch({ color, shape = "circle" }: { color: string; shape?: "circle" |
   );
 }
 
-export function MapLegend() {
+export function MapLegend({ showGenerator = true }: { showGenerator?: boolean }) {
   return (
     <div className="flex flex-wrap items-center gap-x-5 gap-y-2 rounded-md border border-border bg-card px-4 py-2.5 text-xs text-muted-foreground">
-      <div className="flex items-center gap-1.5">
-        <Swatch color={CHART_COLORS.primary} />
-        Waste Generator
-      </div>
+      {showGenerator && (
+        <div className="flex items-center gap-1.5">
+          <Swatch color={CHART_COLORS.primary} />
+          Waste Generator
+        </div>
+      )}
       <div className="flex items-center gap-1.5">
         <Swatch color={CHART_COLORS.accent} />
         Biochar Facility
@@ -32,7 +34,7 @@ export function MapLegend() {
         Biomass Conversion Facility
       </div>
       <div className="flex items-center gap-1.5">
-        <Swatch color={CHART_COLORS.muted} shape="line" />
+        <Swatch color="#1d4ed8" shape="line" />
         Optimized Route
       </div>
     </div>

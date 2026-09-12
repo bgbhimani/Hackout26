@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { SelectNative } from "@/components/ui/select-native";
 import { Skeleton } from "@/components/ui/skeleton";
 import { KpiCard } from "@/components/dashboard/kpi-card";
-import { CategoryBarChart } from "@/components/charts/category-bar-chart";
+import { RankedBarList } from "@/components/charts/ranked-bar-list";
 import { MonthlyLineChart } from "@/components/charts/monthly-line-chart";
 import { CHART_COLORS } from "@/components/charts/chart-colors";
 import { CalculationBreakdown } from "@/components/carbon/calculation-breakdown";
@@ -153,7 +153,7 @@ function CarbonPageContent() {
     for (const r of records) map.set(r.waste_type, (map.get(r.waste_type) ?? 0) + r.net_co2_impact_tonnes);
     return Array.from(map.entries()).map(([waste_type, net]) => ({
       label: WASTE_TYPE_LABEL[waste_type] ?? waste_type,
-      net: Math.round(net * 100) / 100,
+      value: Math.round(net * 100) / 100,
     }));
   }, [records]);
 
@@ -161,8 +161,8 @@ function CarbonPageContent() {
     const map = new Map<string, number>();
     for (const r of records) map.set(r.facility_name, (map.get(r.facility_name) ?? 0) + r.net_co2_impact_tonnes);
     return Array.from(map.entries()).map(([facility_name, net]) => ({
-      facility_name,
-      net: Math.round(net * 100) / 100,
+      label: facility_name,
+      value: Math.round(net * 100) / 100,
     }));
   }, [records]);
 
@@ -287,30 +287,22 @@ function CarbonPageContent() {
               <CardTitle>Carbon impact by waste type</CardTitle>
             </CardHeader>
             <CardContent>
-              <CategoryBarChart
+              <RankedBarList
                 data={byWasteType}
-                xKey="label"
-                yKey="net"
-                valueLabel="Net CO₂e"
                 valueSuffix=" t"
-                layout="horizontal"
                 emptyTitle="No carbon records yet"
                 emptyDescription="Calculate a carbon impact above to see it charted here."
               />
             </CardContent>
           </Card>
-          <Card className="lg:col-span-2">
+          <Card>
             <CardHeader>
               <CardTitle>Carbon impact by facility</CardTitle>
             </CardHeader>
             <CardContent>
-              <CategoryBarChart
+              <RankedBarList
                 data={byFacility}
-                xKey="facility_name"
-                yKey="net"
-                valueLabel="Net CO₂e"
                 valueSuffix=" t"
-                layout="horizontal"
                 emptyTitle="No carbon records yet"
                 emptyDescription="Calculate a carbon impact above to see it charted here."
               />

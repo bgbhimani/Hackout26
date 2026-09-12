@@ -49,9 +49,35 @@ class FacilityStatus(str, enum.Enum):
 
 
 class MatchStatus(str, enum.Enum):
-    RECOMMENDED = "RECOMMENDED"
+    # A Waste Generator has sent this facility a request; awaiting a first
+    # response (accept/reject/counter). Renamed from the old RECOMMENDED -
+    # recommend_facilities() no longer persists anything, so every persisted
+    # Match now genuinely means "someone requested this", never just "shown".
+    REQUESTED = "REQUESTED"
+    # One side has proposed different terms (price/pickup date) and it's the
+    # other side's turn - see Match.last_offer_by.
+    COUNTERED = "COUNTERED"
     ACCEPTED = "ACCEPTED"
     REJECTED = "REJECTED"
+    # The requesting generator cancelled it before either side accepted.
+    WITHDRAWN = "WITHDRAWN"
+
+
+class OfferParty(str, enum.Enum):
+    """Which side of a Match negotiation made a given offer/response."""
+
+    GENERATOR = "GENERATOR"
+    FACILITY = "FACILITY"
+
+
+class OfferAction(str, enum.Enum):
+    """One entry in a Match's negotiation thread (see MatchOffer)."""
+
+    REQUEST = "REQUEST"
+    COUNTER = "COUNTER"
+    ACCEPT = "ACCEPT"
+    REJECT = "REJECT"
+    WITHDRAW = "WITHDRAW"
 
 
 class RouteStatus(str, enum.Enum):

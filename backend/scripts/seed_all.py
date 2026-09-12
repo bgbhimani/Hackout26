@@ -92,21 +92,23 @@ def seed_database(db: Session, force: bool = False) -> dict:
 
     # 1. Seed Users (1 Admin, 2 Generators, 2 Facility Operators)
     created_users = 0
+    user_map: dict[str, User] = {}
     for u in DEMO_USERS:
         existing = db.scalar(select(User).where(User.email == u["email"]))
         if existing:
             existing.name = u["name"]
             existing.role = u["role"]
             existing.hashed_password = hash_password(DEMO_PASSWORD)
+            user_map[u["email"]] = existing
         else:
-            db.add(
-                User(
-                    name=u["name"],
-                    email=u["email"],
-                    hashed_password=hash_password(DEMO_PASSWORD),
-                    role=u["role"],
-                )
+            user = User(
+                name=u["name"],
+                email=u["email"],
+                hashed_password=hash_password(DEMO_PASSWORD),
+                role=u["role"],
             )
+            db.add(user)
+            user_map[u["email"]] = user
             created_users += 1
     db.flush()
 
@@ -149,6 +151,8 @@ def seed_database(db: Session, force: bool = False) -> dict:
         elif spec.name == "Charotar Paddy Farms":
             email = "generator2@example.com"
 
+        owner = user_map.get(email) if email else None
+
         if not existing_gen:
             gen = WasteGenerator(
                 name=spec.name,
@@ -156,6 +160,12 @@ def seed_database(db: Session, force: bool = False) -> dict:
                 contact_name=spec.contact_name,
                 phone=spec.phone,
                 email=email,
+                # Links this demo generator to its demo login (see
+                # WasteGenerator.user_id) so /api/generators/mine, the
+                # Network Map, and Smart Matching's waste-record picker all
+                # recognize it as this account's own instead of treating it
+                # as unowned.
+                user_id=owner.id if owner else None,
                 address=f"{spec.district} District, Gujarat",
                 location=point_from_lat_lng(lat, lng),
             )
@@ -165,6 +175,11 @@ def seed_database(db: Session, force: bool = False) -> dict:
         else:
             if email and not existing_gen.email:
                 existing_gen.email = email
+            # Backfill ownership for rows seeded before user_id existed -
+            # without this, a demo account that predates the migration
+            # would permanently own nothing despite having a matching email.
+            if owner and existing_gen.user_id is None:
+                existing_gen.user_id = owner.id
             generator_map[spec.name] = existing_gen
             gen = existing_gen
 

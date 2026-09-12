@@ -9,7 +9,7 @@ from app.services.matching_service import (
     _build_reasons,
     _capacity_score,
     _distance_score,
-    _is_actionable,
+    _is_negotiable,
     _utilization_score,
 )
 
@@ -92,21 +92,30 @@ def test_reasons_flag_long_distance():
     assert "Long transport distance" in reasons
 
 
-# --- Confirmation flow (accept/reject) -------------------------------------
-# accept_match/reject_match themselves need a real database (facility/match/
-# waste_record rows, ownership checks) and this repo has no DB test fixture
-# infrastructure yet (see conftest - there isn't one), so only the pure
-# decision rule they depend on is unit-tested here. Full accept/reject
-# integration coverage is a known gap, not a silent omission.
+# --- Negotiation flow (accept/reject/counter/withdraw) ---------------------
+# accept_match/reject_match/counter_offer/withdraw_request themselves need a
+# real database (facility/match/waste_record rows, ownership checks) and
+# this repo has no DB test fixture infrastructure yet (see conftest - there
+# isn't one), so only the pure decision rule they depend on is unit-tested
+# here. Full accept/reject/counter integration coverage is a known gap, not
+# a silent omission.
 
 
-def test_only_a_recommended_match_is_actionable():
-    assert _is_actionable(MatchStatus.RECOMMENDED) is True
+def test_a_requested_match_is_negotiable():
+    assert _is_negotiable(MatchStatus.REQUESTED) is True
 
 
-def test_an_already_accepted_match_is_not_actionable_again():
-    assert _is_actionable(MatchStatus.ACCEPTED) is False
+def test_a_countered_match_is_still_negotiable():
+    assert _is_negotiable(MatchStatus.COUNTERED) is True
 
 
-def test_an_already_rejected_match_is_not_actionable_again():
-    assert _is_actionable(MatchStatus.REJECTED) is False
+def test_an_already_accepted_match_is_not_negotiable_again():
+    assert _is_negotiable(MatchStatus.ACCEPTED) is False
+
+
+def test_an_already_rejected_match_is_not_negotiable_again():
+    assert _is_negotiable(MatchStatus.REJECTED) is False
+
+
+def test_a_withdrawn_match_is_not_negotiable_again():
+    assert _is_negotiable(MatchStatus.WITHDRAWN) is False

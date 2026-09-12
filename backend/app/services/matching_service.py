@@ -5,18 +5,32 @@ every score is explainable via ScoreBreakdown + the reasons list. See
 app/constants/matching_config.py for every weight and threshold used here.
 
 SCORING (per waste record, against each ACTIVE facility that accepts its
-waste type):
+waste type and is within MAX_CANDIDATE_DISTANCE_KM):
   1. Compatibility (40%) - binary gate: only facilities whose
      accepted_waste_types include this waste_type are considered at all,
      so among returned candidates this is always 100.
   2. Distance (25%) - real PostGIS ST_Distance (geography, so it's an
      accurate geodesic distance in metres, not a flat-earth approximation),
      linearly scored from 100 at 0km down to 0 at MAX_MATCHING_DISTANCE_KM.
+     Candidates beyond MAX_CANDIDATE_DISTANCE_KM are dropped entirely rather
+     than merely floored to a 0 score - a facility on the other side of the
+     country (or a generator with a garbled lat/lng) has no business
+     appearing in the list at all, however well it scores on the other three
+     components.
   3. Capacity (20%) - 100 if the facility's free capacity
      (capacity_tonnes - current_load_tonnes) covers the whole waste
      quantity, otherwise proportional partial credit.
   4. Utilization (15%) - 100 minus the facility's current utilization % -
      an idle facility scores higher than an already-strained one.
+
+REQUEST LIFECYCLE: recommend_facilities() is a pure preview - it persists
+nothing. A generator explicitly sends a request (send_request), which is
+what actually creates a Match (status REQUESTED) and notifies the facility.
+From there either side can accept, reject, or counter (propose different
+offer_price/offer_pickup_date) while the match stays REQUESTED/COUNTERED;
+Match.last_offer_by always names whoever's terms are currently on the
+table, so it's always the OTHER side's turn to respond. Every turn is also
+appended to MatchOffer as an immutable thread entry.
 """
 import uuid
 
@@ -25,17 +39,31 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session, joinedload
 
 from app.api.deps import AuthenticatedUser
-from app.constants.enums import FacilityStatus, MatchStatus, UserRole, WasteStatus
+from app.constants.enums import (
+    FacilityStatus,
+    MatchStatus,
+    OfferAction,
+    OfferParty,
+    UserRole,
+    WasteStatus,
+)
 from app.constants.matching_config import (
     MATCHING_WEIGHTS,
+    MAX_CANDIDATE_DISTANCE_KM,
     MAX_MATCHING_DISTANCE_KM,
     MAX_RECOMMENDATIONS,
     TRANSPORT_COST_PER_TONNE_KM,
 )
 from app.models.facility import Facility
 from app.models.match import Match
+from app.models.match_offer import MatchOffer
 from app.models.waste_record import WasteRecord
-from app.schemas.matching import FacilityRecommendation, ScoreBreakdown
+from app.schemas.matching import (
+    CounterOfferPayload,
+    FacilityRecommendation,
+    ScoreBreakdown,
+    SendRequestPayload,
+)
 
 
 def _distance_score(distance_km: float) -> float:
@@ -54,6 +82,25 @@ def _utilization_score(utilization_percent: float) -> float:
     return max(0.0, 100.0 - utilization_percent)
 
 
+def _score(
+    *, distance_km: float, available_capacity_tonnes: float, quantity_tonnes: float, utilization_percent: float
+) -> tuple[ScoreBreakdown, float]:
+    breakdown = ScoreBreakdown(
+        compatibility=100.0,
+        distance=round(_distance_score(distance_km), 1),
+        capacity=round(_capacity_score(available_capacity_tonnes, quantity_tonnes), 1),
+        utilization=round(_utilization_score(utilization_percent), 1),
+    )
+    final_score = round(
+        breakdown.compatibility * MATCHING_WEIGHTS["compatibility"]
+        + breakdown.distance * MATCHING_WEIGHTS["distance"]
+        + breakdown.capacity * MATCHING_WEIGHTS["capacity"]
+        + breakdown.utilization * MATCHING_WEIGHTS["utilization"],
+        1,
+    )
+    return breakdown, final_score
+
+
 def _build_reasons(
     *, distance_km: float, available_capacity_tonnes: float, quantity_tonnes: float, utilization_percent: float
 ) -> list[str]:
@@ -70,8 +117,10 @@ def _build_reasons(
         reasons.append("Short transport distance")
     elif distance_km <= MAX_MATCHING_DISTANCE_KM * 0.7:
         reasons.append("Moderate transport distance")
-    else:
+    elif distance_km <= MAX_MATCHING_DISTANCE_KM:
         reasons.append("Long transport distance")
+    else:
+        reasons.append("Well beyond the normal collection range")
 
     if utilization_percent < 50:
         reasons.append("Low facility utilization")
@@ -81,23 +130,38 @@ def _build_reasons(
     return reasons
 
 
+def _distance_km_expr(generator_lat: float, generator_lng: float):
+    origin_wkt = f"POINT({generator_lng} {generator_lat})"
+    return func.ST_Distance(func.ST_GeogFromText(origin_wkt), Facility.location) / 1000.0
+
+
 def recommend_facilities(db: Session, waste_record_id: uuid.UUID) -> list[FacilityRecommendation]:
-    waste_record = db.get(WasteRecord, waste_record_id)
+    """A read-only preview - never persists a Match. Sending an actual
+    request to a facility is a separate, explicit action (see send_request)."""
+    waste_record = db.get(WasteRecord, waste_record_id, options=[joinedload(WasteRecord.generator)])
     if waste_record is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Waste record not found")
 
     generator = waste_record.generator
-    origin_wkt = f"POINT({generator.longitude} {generator.latitude})"
-    distance_km_expr = func.ST_Distance(func.ST_GeogFromText(origin_wkt), Facility.location) / 1000.0
+    distance_km_expr = _distance_km_expr(generator.latitude, generator.longitude)
 
     rows = db.execute(
         select(Facility, distance_km_expr.label("distance_km"))
         .where(
             Facility.status == FacilityStatus.ACTIVE,
             Facility.accepted_waste_types.any(waste_record.waste_type),
+            distance_km_expr <= MAX_CANDIDATE_DISTANCE_KM,
         )
         .order_by(distance_km_expr)
     ).all()
+
+    # If a request has already been sent to some of these facilities for this
+    # waste record, surface its real status/id instead of a plain preview -
+    # a card the generator already acted on must never look actionable again.
+    existing_by_facility = {
+        m.facility_id: m
+        for m in db.scalars(select(Match).where(Match.waste_record_id == waste_record_id)).all()
+    }
 
     recommendations: list[FacilityRecommendation] = []
     for facility, distance_km in rows:
@@ -105,19 +169,13 @@ def recommend_facilities(db: Session, waste_record_id: uuid.UUID) -> list[Facili
         available_capacity = float(facility.capacity_tonnes) - float(facility.current_load_tonnes)
         quantity = float(waste_record.quantity_tonnes)
 
-        breakdown = ScoreBreakdown(
-            compatibility=100.0,
-            distance=round(_distance_score(distance_km), 1),
-            capacity=round(_capacity_score(available_capacity, quantity), 1),
-            utilization=round(_utilization_score(facility.utilization_percent), 1),
+        breakdown, final_score = _score(
+            distance_km=distance_km,
+            available_capacity_tonnes=available_capacity,
+            quantity_tonnes=quantity,
+            utilization_percent=facility.utilization_percent,
         )
-        final_score = round(
-            breakdown.compatibility * MATCHING_WEIGHTS["compatibility"]
-            + breakdown.distance * MATCHING_WEIGHTS["distance"]
-            + breakdown.capacity * MATCHING_WEIGHTS["capacity"]
-            + breakdown.utilization * MATCHING_WEIGHTS["utilization"],
-            1,
-        )
+        existing = existing_by_facility.get(facility.id)
 
         recommendations.append(
             FacilityRecommendation(
@@ -136,94 +194,188 @@ def recommend_facilities(db: Session, waste_record_id: uuid.UUID) -> list[Facili
                     utilization_percent=facility.utilization_percent,
                 ),
                 score_breakdown=breakdown,
+                match_id=existing.id if existing else None,
+                match_status=existing.status if existing else None,
             )
         )
 
     recommendations.sort(key=lambda r: r.match_score, reverse=True)
-    recommendations = recommendations[:MAX_RECOMMENDATIONS]
-
-    match_ids_by_facility = _persist_recommendations(db, waste_record_id, recommendations)
-    for rec in recommendations:
-        rec.match_id = match_ids_by_facility.get(rec.facility_id)
-    return recommendations
+    return recommendations[:MAX_RECOMMENDATIONS]
 
 
-def _persist_recommendations(
-    db: Session, waste_record_id: uuid.UUID, recommendations: list[FacilityRecommendation]
-) -> dict[uuid.UUID, uuid.UUID]:
-    """Replaces previously RECOMMENDED matches for this waste record with
-    the fresh set, so GET /api/matching/{waste_id} reflects the latest
-    computation. Matches a human has already ACCEPTED or REJECTED are left
-    untouched - re-running the recommender must never silently erase a
-    decision someone made. Returns {facility_id: match_id} for the freshly
-    inserted rows so the caller can attach a real match_id to each
-    FacilityRecommendation - that id is what the facility operator's
-    Accept/Reject buttons (POST /api/matching/{match_id}/accept|reject)
-    actually act on."""
-    stale = db.scalars(
-        select(Match).where(Match.waste_record_id == waste_record_id, Match.status == MatchStatus.RECOMMENDED)
-    ).all()
-    for m in stale:
-        db.delete(m)
+def send_request(db: Session, payload: SendRequestPayload, generator_user: AuthenticatedUser) -> Match:
+    """The explicit "Send Request" action - this is what actually creates a
+    Match and puts it in the facility operator's inbox. Everything scoring-
+    related is recomputed fresh here rather than trusted from whatever the
+    client last saw from /recommend, so a stale quantity or a facility whose
+    load changed in the meantime can't be smuggled in as truth."""
+    # Deliberately not restricted to waste records generator_user's own
+    # WasteGenerator entity owns - the waste-record picker (frontend) is a
+    # network-wide view of every AVAILABLE record, and any authenticated
+    # Waste Generator is allowed to broker a request for any of them, not
+    # only ones tied to their own account. See matching/page.tsx.
+    waste_record = db.get(WasteRecord, payload.waste_record_id, options=[joinedload(WasteRecord.generator)])
+    if waste_record is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Waste record not found")
 
-    match_ids_by_facility: dict[uuid.UUID, uuid.UUID] = {}
-    for rec in recommendations:
-        match = Match(
-            waste_record_id=waste_record_id,
-            facility_id=rec.facility_id,
-            compatibility_score=rec.match_score,
-            distance_km=rec.distance_km,
-            estimated_transport_cost=rec.estimated_transport_cost,
-            reasons=rec.reasons,
-            status=MatchStatus.RECOMMENDED,
-        )
-        db.add(match)
-        db.flush()  # populate match.id (Python-side uuid4 default, applied at flush)
-        match_ids_by_facility[rec.facility_id] = match.id
-    db.commit()
-    return match_ids_by_facility
-
-
-def _is_actionable(current_status: MatchStatus) -> bool:
-    """A match can only be accepted or rejected once, from its initial
-    RECOMMENDED state - re-deciding an already-ACCEPTED/REJECTED match is
-    rejected with a 422 rather than silently overwritten. Pure, so it's
-    unit-testable without a database (see tests/test_matching_service.py)."""
-    return current_status == MatchStatus.RECOMMENDED
-
-
-def _load_match_for_action(db: Session, match_id: uuid.UUID, facility_user: AuthenticatedUser) -> Match:
-    match = db.get(Match, match_id, options=[joinedload(Match.facility), joinedload(Match.waste_record)])
-    if match is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Match not found")
-    if match.facility.user_id != facility_user.id:
-        # Deliberately 404, not 403: confirms nothing about whether the match
-        # exists to a caller who doesn't operate the facility it belongs to.
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Match not found")
-    if not _is_actionable(match.status):
+    facility = db.get(Facility, payload.facility_id)
+    if facility is None or facility.status != FacilityStatus.ACTIVE:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Facility not found")
+    if not any(wt == waste_record.waste_type for wt in facility.accepted_waste_types):
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail=f"Match is already {match.status.value}, not RECOMMENDED",
+            detail="This facility does not accept this waste type",
         )
+
+    already_in_flight = db.scalar(
+        select(Match).where(
+            Match.waste_record_id == waste_record.id,
+            Match.facility_id == facility.id,
+            Match.status.in_([MatchStatus.REQUESTED, MatchStatus.COUNTERED, MatchStatus.ACCEPTED]),
+        )
+    )
+    if already_in_flight is not None:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail=f"A request already exists for this facility ({already_in_flight.status.value})",
+        )
+
+    distance_km = float(
+        db.scalar(select(_distance_km_expr(waste_record.generator.latitude, waste_record.generator.longitude)).where(Facility.id == facility.id))
+    )
+    quantity = float(waste_record.quantity_tonnes)
+    available_capacity = float(facility.capacity_tonnes) - float(facility.current_load_tonnes)
+    _breakdown, final_score = _score(
+        distance_km=distance_km,
+        available_capacity_tonnes=available_capacity,
+        quantity_tonnes=quantity,
+        utilization_percent=facility.utilization_percent,
+    )
+
+    match = Match(
+        waste_record_id=waste_record.id,
+        facility_id=facility.id,
+        compatibility_score=final_score,
+        distance_km=round(distance_km, 1),
+        estimated_transport_cost=round(distance_km * TRANSPORT_COST_PER_TONNE_KM * quantity, 2),
+        reasons=_build_reasons(
+            distance_km=distance_km,
+            available_capacity_tonnes=available_capacity,
+            quantity_tonnes=quantity,
+            utilization_percent=facility.utilization_percent,
+        ),
+        status=MatchStatus.REQUESTED,
+        last_offer_by=OfferParty.GENERATOR,
+        offer_price=payload.offer_price,
+        offer_pickup_date=payload.offer_pickup_date,
+        offer_note=payload.note,
+        offer_round=1,
+    )
+    db.add(match)
+    db.flush()  # populate match.id before the MatchOffer FK needs it
+    db.add(
+        MatchOffer(
+            match_id=match.id,
+            offered_by=OfferParty.GENERATOR,
+            action=OfferAction.REQUEST,
+            offer_price=payload.offer_price,
+            offer_pickup_date=payload.offer_pickup_date,
+            note=payload.note,
+        )
+    )
+    db.commit()
+    db.refresh(match)
     return match
 
 
-def accept_match(db: Session, match_id: uuid.UUID, facility_user: AuthenticatedUser) -> Match:
-    """The real confirmation step: a Facility Operator accepting the match
-    a Waste Generator's recommend_facilities() call offered them.
+def _is_negotiable(current_status: MatchStatus) -> bool:
+    """A match can only be responded to while REQUESTED or COUNTERED -
+    re-deciding an already-ACCEPTED/REJECTED/WITHDRAWN match is rejected
+    with a 422 rather than silently overwritten."""
+    return current_status in (MatchStatus.REQUESTED, MatchStatus.COUNTERED)
 
-    Side effects, in order:
+
+def _actor_party(match: Match, user: AuthenticatedUser) -> OfferParty:
+    """Which side of this negotiation the caller is - resolved by ownership,
+    not role alone, so a Facility Operator can't act on someone else's
+    facility's match and a Waste Generator can't act on someone else's
+    waste record. Deliberately 404s either way: confirms nothing about a
+    match the caller isn't part of."""
+    if match.facility.user_id == user.id:
+        return OfferParty.FACILITY
+    if match.waste_record.generator.user_id == user.id:
+        return OfferParty.GENERATOR
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Match not found")
+
+
+def _load_match_for_negotiation(db: Session, match_id: uuid.UUID, user: AuthenticatedUser) -> tuple[Match, OfferParty]:
+    match = db.get(
+        Match,
+        match_id,
+        options=[joinedload(Match.facility), joinedload(Match.waste_record).joinedload(WasteRecord.generator)],
+    )
+    if match is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Match not found")
+    return match, _actor_party(match, user)
+
+
+def _require_negotiable(match: Match) -> None:
+    if not _is_negotiable(match.status):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"Match is already {match.status.value}, no further action possible",
+        )
+
+
+def _require_others_turn(match: Match, party: OfferParty) -> None:
+    """Accept/reject/counter always respond to the OTHER side's last offer -
+    you can't accept, reject, or re-counter your own still-outstanding
+    offer. Withdraw is exempt from this (see withdraw_request)."""
+    if match.last_offer_by == party:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="Waiting for the other party to respond to your last offer",
+        )
+
+
+def _log_offer(
+    db: Session,
+    match: Match,
+    party: OfferParty,
+    action: OfferAction,
+    *,
+    offer_price: float | None = None,
+    offer_pickup_date=None,
+    note: str | None = None,
+) -> None:
+    db.add(
+        MatchOffer(
+            match_id=match.id,
+            offered_by=party,
+            action=action,
+            offer_price=offer_price,
+            offer_pickup_date=offer_pickup_date,
+            note=note,
+        )
+    )
+
+
+def accept_match(db: Session, match_id: uuid.UUID, user: AuthenticatedUser) -> Match:
+    """Either side can accept the other's outstanding offer. Side effects,
+    in order:
       1. This match -> ACCEPTED.
-      2. Every OTHER still-RECOMMENDED match for the same waste record is
-         auto-REJECTED - a waste record can only be accepted at one facility
-         at a time, otherwise route_service.optimize_route would have no way
-         to know which facility legitimately owns it.
+      2. Every OTHER still-active (REQUESTED/COUNTERED) match for the same
+         waste record is auto-REJECTED - a waste record can only be accepted
+         at one facility at a time, otherwise route_service.optimize_route
+         would have no way to know which facility legitimately owns it.
       3. The waste record itself -> PENDING (reserved for pickup), but only
          if it's still AVAILABLE - if something else already moved it on
          (e.g. a race with another accept), fail loudly instead of silently
          overwriting a real state transition.
     """
-    match = _load_match_for_action(db, match_id, facility_user)
+    match, party = _load_match_for_negotiation(db, match_id, user)
+    _require_negotiable(match)
+    _require_others_turn(match, party)
 
     if match.waste_record.status != WasteStatus.AVAILABLE:
         raise HTTPException(
@@ -233,11 +385,15 @@ def accept_match(db: Session, match_id: uuid.UUID, facility_user: AuthenticatedU
 
     match.status = MatchStatus.ACCEPTED
     match.waste_record.status = WasteStatus.PENDING
+    _log_offer(
+        db, match, party, OfferAction.ACCEPT,
+        offer_price=match.offer_price, offer_pickup_date=match.offer_pickup_date, note=match.offer_note,
+    )
 
     siblings = db.scalars(
         select(Match).where(
             Match.waste_record_id == match.waste_record_id,
-            Match.status == MatchStatus.RECOMMENDED,
+            Match.status.in_([MatchStatus.REQUESTED, MatchStatus.COUNTERED]),
             Match.id != match.id,
         )
     ).all()
@@ -249,28 +405,118 @@ def accept_match(db: Session, match_id: uuid.UUID, facility_user: AuthenticatedU
     return match
 
 
-def reject_match(db: Session, match_id: uuid.UUID, facility_user: AuthenticatedUser) -> Match:
+def reject_match(db: Session, match_id: uuid.UUID, user: AuthenticatedUser) -> Match:
     """The waste record is left exactly as it was (AVAILABLE) - rejecting a
     match must never affect the generator's ability to be matched elsewhere."""
-    match = _load_match_for_action(db, match_id, facility_user)
+    match, party = _load_match_for_negotiation(db, match_id, user)
+    _require_negotiable(match)
+    _require_others_turn(match, party)
+
     match.status = MatchStatus.REJECTED
+    _log_offer(db, match, party, OfferAction.REJECT)
     db.commit()
     db.refresh(match)
     return match
 
 
+def counter_offer(db: Session, match_id: uuid.UUID, user: AuthenticatedUser, payload: CounterOfferPayload) -> Match:
+    """Propose different terms. Flips whose turn it is - the other side must
+    now accept, reject, or counter back."""
+    match, party = _load_match_for_negotiation(db, match_id, user)
+    _require_negotiable(match)
+    _require_others_turn(match, party)
+
+    match.status = MatchStatus.COUNTERED
+    match.last_offer_by = party
+    match.offer_price = payload.offer_price
+    match.offer_pickup_date = payload.offer_pickup_date
+    match.offer_note = payload.note
+    match.offer_round += 1
+    _log_offer(
+        db, match, party, OfferAction.COUNTER,
+        offer_price=payload.offer_price, offer_pickup_date=payload.offer_pickup_date, note=payload.note,
+    )
+    db.commit()
+    db.refresh(match)
+    return match
+
+
+def withdraw_request(db: Session, match_id: uuid.UUID, user: AuthenticatedUser) -> Match:
+    """Only the requesting generator can withdraw - and can do so regardless
+    of whose turn it is, since this isn't a response to the other side's
+    offer, it's cancelling the ask altogether."""
+    match, party = _load_match_for_negotiation(db, match_id, user)
+    if party != OfferParty.GENERATOR:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Only the requesting generator can withdraw a request")
+    _require_negotiable(match)
+
+    match.status = MatchStatus.WITHDRAWN
+    _log_offer(db, match, party, OfferAction.WITHDRAW)
+    db.commit()
+    db.refresh(match)
+    return match
+
+
+def get_offers_for_match(db: Session, match_id: uuid.UUID, user: AuthenticatedUser) -> list[MatchOffer]:
+    match, _party = _load_match_for_negotiation(db, match_id, user)
+    return list(match.offers)
+
+
+def _to_negotiation_out(m: Match, facility_name: str, *, viewer: OfferParty) -> dict:
+    return {
+        "id": m.id,
+        "waste_record_id": m.waste_record_id,
+        "facility_id": m.facility_id,
+        "facility_name": facility_name,
+        "facility_type": m.facility.facility_type,
+        "compatibility_score": m.compatibility_score,
+        "distance_km": m.distance_km,
+        "estimated_transport_cost": m.estimated_transport_cost,
+        "reasons": m.reasons,
+        "status": m.status,
+        "last_offer_by": m.last_offer_by,
+        "offer_price": m.offer_price,
+        "offer_pickup_date": m.offer_pickup_date,
+        "offer_note": m.offer_note,
+        "offer_round": m.offer_round,
+        "created_at": m.created_at,
+        "waste_type": m.waste_record.waste_type,
+        "quantity_tonnes": m.waste_record.quantity_tonnes,
+        "generator_name": m.waste_record.generator.name,
+        "can_respond": _is_negotiable(m.status) and m.last_offer_by != viewer,
+    }
+
+
 def get_pending_matches_for_operator(db: Session, user_id: uuid.UUID) -> list[dict]:
-    """Every RECOMMENDED match offered to a facility this user operates -
-    the Facility Operator's "incoming requests" inbox (GET /api/matching/pending)."""
+    """A Facility Operator's Requests inbox: every REQUESTED/COUNTERED match
+    for a facility they operate - including ones they've already countered
+    and are waiting on the generator for, so the full negotiation stays
+    visible in one place, not just the ones currently actionable."""
     rows = db.execute(
         select(Match, Facility.name.label("facility_name"))
         .join(Facility, Facility.id == Match.facility_id)
         .join(WasteRecord, WasteRecord.id == Match.waste_record_id)
-        .where(Facility.user_id == user_id, Match.status == MatchStatus.RECOMMENDED)
+        .where(Facility.user_id == user_id, Match.status.in_([MatchStatus.REQUESTED, MatchStatus.COUNTERED]))
         .order_by(Match.created_at.desc())
-        .options(joinedload(Match.waste_record).joinedload(WasteRecord.generator))
+        .options(joinedload(Match.waste_record).joinedload(WasteRecord.generator), joinedload(Match.facility))
     ).all()
-    return [_to_pending_match_out(m, facility_name) for m, facility_name in rows]
+    return [_to_negotiation_out(m, facility_name, viewer=OfferParty.FACILITY) for m, facility_name in rows]
+
+
+def get_my_requests_for_generator(db: Session, user_id: uuid.UUID) -> list[dict]:
+    """A Waste Generator's My Requests page: every request they've sent,
+    across every status, most recent first - active ones need a response or
+    show "awaiting facility"; terminal ones (accepted/rejected/withdrawn)
+    stay visible as a record of what happened."""
+    rows = db.execute(
+        select(Match, Facility.name.label("facility_name"))
+        .join(Facility, Facility.id == Match.facility_id)
+        .join(WasteRecord, WasteRecord.id == Match.waste_record_id)
+        .where(WasteRecord.generator.has(user_id=user_id))
+        .order_by(Match.created_at.desc())
+        .options(joinedload(Match.waste_record).joinedload(WasteRecord.generator), joinedload(Match.facility))
+    ).all()
+    return [_to_negotiation_out(m, facility_name, viewer=OfferParty.GENERATOR) for m, facility_name in rows]
 
 
 def get_accepted_matches_for_facility(
@@ -301,27 +547,9 @@ def get_accepted_matches_for_facility(
             WasteRecord.status == WasteStatus.PENDING,
         )
         .order_by(Match.created_at.desc())
-        .options(joinedload(Match.waste_record).joinedload(WasteRecord.generator))
+        .options(joinedload(Match.waste_record).joinedload(WasteRecord.generator), joinedload(Match.facility))
     ).all()
-    return [_to_pending_match_out(m, facility_name) for m, facility_name in rows]
-
-
-def _to_pending_match_out(m: Match, facility_name: str) -> dict:
-    return {
-        "id": m.id,
-        "waste_record_id": m.waste_record_id,
-        "facility_id": m.facility_id,
-        "facility_name": facility_name,
-        "compatibility_score": m.compatibility_score,
-        "distance_km": m.distance_km,
-        "estimated_transport_cost": m.estimated_transport_cost,
-        "reasons": m.reasons,
-        "status": m.status,
-        "created_at": m.created_at,
-        "waste_type": m.waste_record.waste_type,
-        "quantity_tonnes": m.waste_record.quantity_tonnes,
-        "generator_name": m.waste_record.generator.name,
-    }
+    return [_to_negotiation_out(m, facility_name, viewer=OfferParty.FACILITY) for m, facility_name in rows]
 
 
 def get_matches_for_waste_record(db: Session, waste_record_id: uuid.UUID) -> list[dict]:
@@ -342,6 +570,11 @@ def get_matches_for_waste_record(db: Session, waste_record_id: uuid.UUID) -> lis
             "estimated_transport_cost": m.estimated_transport_cost,
             "reasons": m.reasons,
             "status": m.status,
+            "last_offer_by": m.last_offer_by,
+            "offer_price": m.offer_price,
+            "offer_pickup_date": m.offer_pickup_date,
+            "offer_note": m.offer_note,
+            "offer_round": m.offer_round,
             "created_at": m.created_at,
         }
         for m, facility_name in rows

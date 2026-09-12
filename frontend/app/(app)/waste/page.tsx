@@ -72,6 +72,12 @@ export default function WastePage() {
 
   const canWrite = user?.role === "ADMIN" || user?.role === "WASTE_GENERATOR";
   const canDelete = user?.role === "ADMIN" || user?.role === "WASTE_GENERATOR";
+  // Deliberately unfiltered for every role, per explicit user request - this
+  // page shows the full generator roster from the database regardless of who
+  // registered which one, same as "Waste Batches" already shows every
+  // record network-wide, not just the viewer's own. (The Network Map is a
+  // separate, deliberate exception - it restricts a Waste Generator to their
+  // own location + facilities, per an earlier, distinct request.)
 
   async function load() {
     const [g, w] = await Promise.all([

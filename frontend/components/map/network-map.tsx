@@ -1,13 +1,14 @@
 "use client";
 
+import { useEffect, useMemo } from "react";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 import Link from "next/link";
 import { History, MapPin, Package, ShieldCheck, Sparkles, Sprout } from "lucide-react";
-import { MapContainer, Marker, Polyline, Popup, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, Polyline, Popup, TileLayer, useMap } from "react-leaflet";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CHART_COLORS } from "@/components/charts/chart-colors";
 import { facilityIcons, generatorIcon } from "@/components/map/marker-icons";
 import type { Facility, Generator, OptimizedRoute, WasteRecordWithGenerator } from "@/types";
 
@@ -28,9 +29,36 @@ const STATUS_VARIANT: Record<string, "default" | "accent" | "secondary" | "outli
   PROCESSED: "outline",
 };
 
-// Centred roughly on the demo area
+// Centred roughly on the demo area - only used as a fallback before
+// FitBounds below adjusts to whatever data is actually being shown, and
+// when there's no data at all to fit to.
 const DEFAULT_CENTER: [number, number] = [22.95, 72.75];
 const DEFAULT_ZOOM = 9;
+
+/** Zooms/pans the map to frame exactly what's currently being shown, instead
+ * of always sitting at a fixed province-wide view. Without this, a single
+ * ~14km route (a very normal result once there's only one or two generators
+ * matched to a facility) renders as a ~50px sliver on a map framing the
+ * whole of Gujarat - visually indistinguishable from "nothing happened",
+ * even though the data and the polyline are both completely correct. Refits
+ * whenever the set of visible points changes (e.g. a filter is applied). */
+function FitBounds({ points }: { points: [number, number][] }) {
+  const map = useMap();
+
+  useEffect(() => {
+    const [first, ...rest] = points;
+    if (first === undefined) return;
+    if (rest.length === 0) {
+      map.setView(first, 13);
+      return;
+    }
+    const bounds = L.latLngBounds(points.map(([lat, lng]) => L.latLng(lat, lng)));
+    map.fitBounds(bounds, { padding: [48, 48], maxZoom: 13 });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [map, JSON.stringify(points)]);
+
+  return null;
+}
 
 export function NetworkMap({
   generators,
@@ -45,6 +73,28 @@ export function NetworkMap({
   routes?: OptimizedRoute[];
   showRoutes?: boolean;
 }) {
+  // What to frame the view around. Generators + facilities together always
+  // span roughly the whole of Gujarat (that's the whole network), so folding
+  // a route's points into that same bounds would still make it a ~50px
+  // sliver on a province-wide view - no better than not fitting at all. When
+  // there's at least one route to show, frame around the route(s)
+  // specifically instead - that's the thing actually worth zooming to; the
+  // rest of the network is still there to explore by zooming/panning out.
+  // Only fall back to framing the full generator/facility roster when there
+  // are no routes to show at all.
+  const routePoints = useMemo(
+    () => (showRoutes ? routes.flatMap((route) => route.path as [number, number][]) : []),
+    [routes, showRoutes]
+  );
+  const networkPoints = useMemo(
+    (): [number, number][] => [
+      ...generators.map((g): [number, number] => [g.latitude, g.longitude]),
+      ...facilities.map((f): [number, number] => [f.latitude, f.longitude]),
+    ],
+    [generators, facilities]
+  );
+  const boundsPoints = routePoints.length > 0 ? routePoints : networkPoints;
+
   return (
     <MapContainer
       center={DEFAULT_CENTER}
@@ -52,12 +102,18 @@ export function NetworkMap({
       scrollWheelZoom
       style={{ height: "100%", width: "100%" }}
     >
+      <FitBounds points={boundsPoints} />
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {/* Generator / Verified Farm Pins with Detailed Edit Audit & Batch Tracking */}
+      {/* Generator / Verified Farm Pins with Detailed Edit Audit & Batch Tracking.
+          (Previously wrapped in react-leaflet-cluster's MarkerClusterGroup to
+          spread out overlapping markers in dense areas - removed after it
+          was found to keep stale markers from a prior render in its own
+          internal spatial index, surviving even a full page reload with
+          fresh data. Correctness beats the clustering convenience.) */}
       {generators.map((g) => {
         const records = wasteByGenerator.get(g.id) ?? [];
         const available = records.filter((r) => r.status === "AVAILABLE");
@@ -174,13 +230,24 @@ export function NetworkMap({
         </Marker>
       ))}
 
-      {/* Routes */}
+      {/* Routes - a bold white "halo" underneath a solid, saturated line on
+          top. The previous style (muted gray, dashed, 70% opacity) all but
+          disappeared against OpenStreetMap's own gray/tan road rendering -
+          this needs to read clearly even crossing a dense highway interchange. */}
+      {showRoutes &&
+        routes.map((route) => (
+          <Polyline
+            key={`${route.id}-halo`}
+            positions={route.path}
+            pathOptions={{ color: "#ffffff", weight: 7, opacity: 0.9 }}
+          />
+        ))}
       {showRoutes &&
         routes.map((route) => (
           <Polyline
             key={route.id}
             positions={route.path}
-            pathOptions={{ color: CHART_COLORS.muted, weight: 3, opacity: 0.7, dashArray: "6 4" }}
+            pathOptions={{ color: "#1d4ed8", weight: 4, opacity: 1 }}
           >
             <Popup>
               <div className="text-sm">

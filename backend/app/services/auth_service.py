@@ -37,6 +37,7 @@ def register_waste_generator(db: Session, payload: WasteGeneratorSignupRequest) 
         role=UserRole.WASTE_GENERATOR,
     )
     db.add(user)
+    db.flush()  # populate user.id (Python-side uuid4 default, applied at flush) before using it below
 
     generator = WasteGenerator(
         name=payload.generator_name,
@@ -46,6 +47,7 @@ def register_waste_generator(db: Session, payload: WasteGeneratorSignupRequest) 
         email=payload.email,
         address=payload.address,
         location=point_from_lat_lng(payload.latitude, payload.longitude),
+        user_id=user.id,
     )
     db.add(generator)
 

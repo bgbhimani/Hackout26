@@ -20,7 +20,23 @@ def get_generator_or_404(db: Session, generator_id: uuid.UUID) -> WasteGenerator
     return generator
 
 
-def create_generator(db: Session, payload: GeneratorCreate) -> WasteGenerator:
+def list_own_generators(db: Session, user_id: uuid.UUID) -> list[WasteGenerator]:
+    """Every generator entity this user owns - one from signup
+    (auth_service.register_waste_generator), plus any more they've since
+    registered themselves via POST /api/generators (see create_generator
+    below). A demo/pre-existing account that predates this ownership link
+    (or that never registered one) genuinely owns none - an empty list,
+    not the whole network's roster mislabeled as theirs."""
+    return list(
+        db.scalars(select(WasteGenerator).where(WasteGenerator.user_id == user_id).order_by(WasteGenerator.name))
+    )
+
+
+def create_generator(db: Session, payload: GeneratorCreate, owner_id: uuid.UUID | None = None) -> WasteGenerator:
+    """`owner_id` is only ever the calling user's own id when a
+    WASTE_GENERATOR self-registers an additional farm/site (see
+    app/api/generators.py) - an ADMIN adding a generator on someone's behalf
+    leaves it unowned (None), same as every pre-existing seeded generator."""
     generator = WasteGenerator(
         name=payload.name,
         generator_type=payload.generator_type,
@@ -29,6 +45,7 @@ def create_generator(db: Session, payload: GeneratorCreate) -> WasteGenerator:
         email=payload.email,
         address=payload.address,
         location=point_from_lat_lng(payload.latitude, payload.longitude),
+        user_id=owner_id,
     )
     db.add(generator)
     db.commit()

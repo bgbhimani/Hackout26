@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { Sidebar } from "@/components/layout/sidebar";
@@ -15,16 +15,23 @@ export function Shell({ children }: { children: React.ReactNode }) {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const router = useRouter();
 
-  if (loading) {
-    return <ShellSkeleton />;
-  }
+  // Client-side guard - Phase 1 keeps auth simple (JWT in localStorage, no
+  // server-side session), so route protection happens here rather than in
+  // Next.js middleware. This MUST run in an effect, not directly in the
+  // component body: calling router.replace() during Shell's own render is
+  // a state update on a different component (the router) while rendering
+  // Shell - React (correctly) errors on that as "Cannot update a component
+  // while rendering a different component."
+  useEffect(() => {
+    if (!loading && !user) {
+      router.replace("/login");
+    }
+  }, [loading, user, router]);
 
-  if (!user) {
-    // Client-side guard - Phase 1 keeps auth simple (JWT in localStorage,
-    // no server-side session), so route protection happens here rather
-    // than in Next.js middleware.
-    router.replace("/login");
-    return null;
+  if (loading || !user) {
+    // Also covers the brief window between "not logged in" and the redirect
+    // above actually landing - a skeleton, not a flash of nothing or an error.
+    return <ShellSkeleton />;
   }
 
   return (
