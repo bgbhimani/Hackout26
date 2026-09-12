@@ -51,6 +51,6 @@ def update_generator(
 def delete_generator(
     generator_id: uuid.UUID,
     db: Session = Depends(get_db),
-    _=Depends(require_role(UserRole.ADMIN)),
+    _=Depends(require_role(*_WRITE_ROLES)),
 ) -> None:
     generator_service.delete_generator(db, generator_id)

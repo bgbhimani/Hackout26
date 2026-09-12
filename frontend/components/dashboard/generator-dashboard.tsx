@@ -65,21 +65,22 @@ export function GeneratorDashboard({
   routes,
   carbonRecords,
 }: GeneratorDashboardProps) {
-  // Find generator entity linked to current user
-  const linkedGenerator = generators.find(
+  // Find all generator entities/farms linked to current user
+  const userGenerators = generators.filter(
     (g) =>
       (currentUser?.email && g.email?.toLowerCase() === currentUser.email.toLowerCase()) ||
       (currentUser?.name && g.contact_name?.toLowerCase().includes(currentUser.name.toLowerCase()))
   );
 
-  // Filter waste records for this specific generator if linked
-  const userWasteRecords = linkedGenerator
-    ? wasteRecords.filter((r) => r.generator_id === linkedGenerator.id)
-    : currentUser?.email === "generator1@example.com"
-    ? wasteRecords.filter((r) => r.generator_name?.toLowerCase().includes("dairy") || r.generator_name?.toLowerCase().includes("zakariyapura"))
-    : currentUser?.email === "generator2@example.com"
-    ? wasteRecords.filter((r) => r.generator_name?.toLowerCase().includes("charotar") || r.generator_name?.toLowerCase().includes("paddy"))
-    : wasteRecords;
+  const userGeneratorIds = new Set(userGenerators.map((g) => g.id));
+
+  // If user has specific farms registered, filter to ONLY those farms.
+  // If user is a demo user with no specific farm matches yet, filter by their generator ID or show empty state.
+  const userWasteRecords = userGeneratorIds.size > 0
+    ? wasteRecords.filter((r) => userGeneratorIds.has(r.generator_id))
+    : currentUser?.email === "generator1@example.com" || currentUser?.email === "generator2@example.com"
+    ? wasteRecords.slice(0, 4) // Demo convenience only for default seeded accounts
+    : []; // Any newly registered user sees only their own newly added batches (or empty state)
 
   // Compute generator specific metrics
   const availableRecords = userWasteRecords.filter((r) => r.status === "AVAILABLE");
@@ -258,7 +259,7 @@ export function GeneratorDashboard({
           </CardHeader>
           <CardContent>
             <CategoryBarChart
-              data={generatorWasteByType.length > 0 ? generatorWasteByType : analytics.waste_by_type.map(d => ({ ...d, label: WASTE_TYPE_LABEL[d.waste_type] ?? d.waste_type }))}
+              data={generatorWasteByType}
               xKey="label"
               yKey="quantity_tonnes"
               valueLabel="Quantity"

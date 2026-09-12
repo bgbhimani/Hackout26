@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { History, MapPin, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -17,7 +18,12 @@ import { SelectNative } from "@/components/ui/select-native";
 import { apiFetch, ApiError } from "@/lib/api";
 import type { Generator, GeneratorType } from "@/types";
 
-const GENERATOR_TYPES: GeneratorType[] = ["FARM", "FOOD_INDUSTRY", "MUNICIPALITY", "INDUSTRIAL"];
+const GENERATOR_TYPES: { value: GeneratorType; label: string }[] = [
+  { value: "FARM", label: "Farm / Agricultural Field" },
+  { value: "FOOD_INDUSTRY", label: "Food Processing Industry" },
+  { value: "MUNICIPALITY", label: "Municipal Waste Facility" },
+  { value: "INDUSTRIAL", label: "Industrial / Sugar Mill" },
+];
 
 interface FormState {
   name: string;
@@ -114,7 +120,7 @@ export function GeneratorFormDialog({
       onSaved();
       onOpenChange(false);
     } catch (err) {
-      setError(err instanceof ApiError ? err.message : "Failed to save generator");
+      setError(err instanceof ApiError ? err.message : "Failed to save farm/facility profile.");
     } finally {
       setSaving(false);
     }
@@ -122,60 +128,93 @@ export function GeneratorFormDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent>
+      <DialogContent className="max-w-lg">
         <DialogHeader>
-          <DialogTitle>{editing ? "Edit Generator" : "Add Generator"}</DialogTitle>
+          <DialogTitle className="flex items-center gap-2">
+            <MapPin className="h-5 w-5 text-primary" />
+            {editing ? "Edit Farm / Facility Profile" : "Register New Farm / Site"}
+          </DialogTitle>
           <DialogDescription>
-            {editing ? "Update this waste generator's details." : "Register a new waste generator."}
+            {editing
+              ? "Update your farm location, contact person, or address. Changes will update all linked batch pickups."
+              : "Register your farm or processing site. Once added, you can log waste batches directly to this location."}
           </DialogDescription>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-1.5">
-            <Label htmlFor="name">Name</Label>
-            <Input id="name" required value={form.name} onChange={(e) => set("name", e.target.value)} />
+            <Label htmlFor="name">Farm / Facility Name</Label>
+            <Input
+              id="name"
+              required
+              value={form.name}
+              onChange={(e) => set("name", e.target.value)}
+              placeholder="e.g. Sunrise Organic Farm - Plot B"
+            />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label htmlFor="generator_type">Generator Type</Label>
+              <Label htmlFor="generator_type">Producer Type</Label>
               <SelectNative
                 id="generator_type"
                 value={form.generator_type}
                 onChange={(e) => set("generator_type", e.target.value as GeneratorType)}
               >
                 {GENERATOR_TYPES.map((t) => (
-                  <option key={t} value={t}>
-                    {t.replace("_", " ")}
+                  <option key={t.value} value={t.value}>
+                    {t.label}
                   </option>
                 ))}
               </SelectNative>
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="contact_name">Contact Name</Label>
-              <Input id="contact_name" value={form.contact_name} onChange={(e) => set("contact_name", e.target.value)} />
+              <Label htmlFor="contact_name">Supervisor / Contact</Label>
+              <Input
+                id="contact_name"
+                value={form.contact_name}
+                onChange={(e) => set("contact_name", e.target.value)}
+                placeholder="e.g. Rajesh Patel"
+              />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label htmlFor="phone">Phone</Label>
-              <Input id="phone" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
+              <Label htmlFor="phone">Contact Phone</Label>
+              <Input
+                id="phone"
+                value={form.phone}
+                onChange={(e) => set("phone", e.target.value)}
+                placeholder="e.g. +91 98765 43210"
+              />
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
+              <Label htmlFor="email">Alerts Email</Label>
+              <Input
+                id="email"
+                type="email"
+                value={form.email}
+                onChange={(e) => set("email", e.target.value)}
+                placeholder="e.g. farm@example.com"
+              />
             </div>
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="address">Address</Label>
-            <Input id="address" required value={form.address} onChange={(e) => set("address", e.target.value)} />
+            <Label htmlFor="address">Physical Address / Village</Label>
+            <Input
+              id="address"
+              required
+              value={form.address}
+              onChange={(e) => set("address", e.target.value)}
+              placeholder="e.g. Near Canal, Village Zakariyapura, Anand"
+            />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label htmlFor="latitude">Latitude</Label>
+              <Label htmlFor="latitude">Latitude (°N)</Label>
               <Input
                 id="latitude"
                 type="number"
@@ -183,10 +222,11 @@ export function GeneratorFormDialog({
                 required
                 value={form.latitude}
                 onChange={(e) => set("latitude", e.target.value)}
+                placeholder="e.g. 22.5645"
               />
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="longitude">Longitude</Label>
+              <Label htmlFor="longitude">Longitude (°E)</Label>
               <Input
                 id="longitude"
                 type="number"
@@ -194,9 +234,19 @@ export function GeneratorFormDialog({
                 required
                 value={form.longitude}
                 onChange={(e) => set("longitude", e.target.value)}
+                placeholder="e.g. 72.9289"
               />
             </div>
           </div>
+
+          {editing && (
+            <div className="flex items-center gap-2 rounded-md bg-muted/50 p-2.5 text-xs text-muted-foreground">
+              <History className="h-3.5 w-3.5 text-primary" />
+              <span>
+                Last updated on {new Date(editing.updated_at || editing.created_at).toLocaleString()}
+              </span>
+            </div>
+          )}
 
           {error && <p className="text-sm text-destructive">{error}</p>}
 
@@ -205,7 +255,7 @@ export function GeneratorFormDialog({
               Cancel
             </Button>
             <Button type="submit" disabled={saving}>
-              {saving ? "Saving..." : editing ? "Save Changes" : "Add Generator"}
+              {saving ? "Saving Profile..." : editing ? "Save Changes" : "Register Farm"}
             </Button>
           </DialogFooter>
         </form>

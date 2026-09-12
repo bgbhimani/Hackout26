@@ -8,16 +8,19 @@ export function EmptyState({
   icon: Icon,
   title,
   description,
+  children,
 }: {
   icon: LucideIcon;
   title: string;
   description: string;
+  children?: React.ReactNode;
 }) {
   return (
     <div className="flex flex-col items-center justify-center gap-2 rounded-md border border-dashed border-border bg-muted/40 px-6 py-10 text-center">
       <Icon className="h-6 w-6 text-muted-foreground" />
       <p className="text-sm font-medium text-foreground">{title}</p>
       <p className="max-w-xs text-xs text-muted-foreground">{description}</p>
+      {children && <div className="mt-2">{children}</div>}
     </div>
   );
 }
