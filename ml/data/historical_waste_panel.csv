@@ -1,0 +1,925 @@
+generator_id,generator_name,district,generator_type,latitude,longitude,waste_type,year,month,quantity_tonnes
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2020,1,95.1
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2020,2,90.8
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2020,3,113.4
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2020,4,107.7
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2020,5,86.2
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2020,6,105.2
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2020,7,96.6
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2020,8,96.5
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2020,9,95.2
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2020,10,90.3
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2020,11,85.3
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2020,12,93.7
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2021,1,113.8
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2021,2,88.8
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2021,3,114.0
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2021,4,91.3
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2021,5,95.8
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2021,6,109.7
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2021,7,109.8
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2021,8,98.1
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2021,9,86.6
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2021,10,99.3
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2021,11,96.3
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2021,12,112.7
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2022,1,94.6
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2022,2,110.4
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2022,3,84.7
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2022,4,96.0
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2022,5,107.9
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2022,6,106.5
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2022,7,85.0
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2022,8,84.9
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2022,9,85.7
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2022,10,111.1
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2022,11,91.4
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2022,12,105.9
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2023,1,97.8
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2023,2,95.7
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2023,3,116.9
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2023,4,106.4
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2023,5,95.4
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2023,6,109.4
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2023,7,97.1
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2023,8,95.8
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2023,9,87.5
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2023,10,110.6
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2023,11,115.6
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2023,12,106.9
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2024,1,92.1
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2024,2,98.9
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2024,3,106.6
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2024,4,122.2
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2024,5,122.1
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2024,6,103.8
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2024,7,99.4
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2024,8,105.2
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2024,9,107.2
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2024,10,121.2
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2024,11,97.2
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2024,12,117.2
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2025,1,121.3
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2025,2,119.6
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2025,3,114.1
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2025,4,104.8
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2025,5,104.6
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2025,6,106.0
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2025,7,119.9
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2025,8,96.6
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2025,9,100.5
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2025,10,118.9
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2025,11,102.2
+ahmedabad_municipal_zone___maninagar,Ahmedabad Municipal Zone - Maninagar,Ahmedabad,MUNICIPALITY,23.056045768060347,72.64932242444996,ORGANIC_WASTE,2025,12,96.1
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2020,1,88.9
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2020,2,86.6
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2020,3,89.1
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2020,4,72.2
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2020,5,68.0
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2020,6,68.3
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2020,7,77.7
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2020,8,82.6
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2020,9,76.5
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2020,10,71.5
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2020,11,75.8
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2020,12,80.5
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2021,1,85.5
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2021,2,87.8
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2021,3,83.5
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2021,4,70.5
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2021,5,87.7
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2021,6,74.6
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2021,7,81.1
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2021,8,76.5
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2021,9,85.2
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2021,10,72.4
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2021,11,73.5
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2021,12,73.5
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2022,1,87.1
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2022,2,80.0
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2022,3,74.1
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2022,4,75.7
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2022,5,89.7
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2022,6,78.3
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2022,7,71.8
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2022,8,85.4
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2022,9,81.7
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2022,10,89.7
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2022,11,68.8
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2022,12,77.5
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2023,1,89.2
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2023,2,91.0
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2023,3,69.8
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2023,4,75.9
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2023,5,71.7
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2023,6,73.4
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2023,7,92.4
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2023,8,82.9
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2023,9,91.4
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2023,10,77.8
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2023,11,89.8
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2023,12,79.7
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2024,1,86.9
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2024,2,90.9
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2024,3,70.7
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2024,4,82.5
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2024,5,83.1
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2024,6,73.4
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2024,7,77.0
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2024,8,71.5
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2024,9,73.1
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2024,10,74.3
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2024,11,82.6
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2024,12,83.8
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2025,1,67.5
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2025,2,75.0
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2025,3,83.3
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2025,4,71.6
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2025,5,74.6
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2025,6,72.0
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2025,7,86.1
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2025,8,80.2
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2025,9,68.7
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2025,10,69.6
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2025,11,76.6
+ahmedabad_municipal_zone___vastrapur,Ahmedabad Municipal Zone - Vastrapur,Ahmedabad,MUNICIPALITY,22.955309184780734,72.5796372997248,ORGANIC_WASTE,2025,12,80.3
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2020,1,23.5
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2020,2,25.2
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2020,3,23.7
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2020,4,23.2
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2020,5,24.0
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2020,6,22.0
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2020,7,22.6
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2020,8,19.2
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2020,9,24.1
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2020,10,20.5
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2020,11,25.1
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2020,12,23.2
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2021,1,19.7
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2021,2,20.5
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2021,3,23.0
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2021,4,23.5
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2021,5,19.6
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2021,6,19.3
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2021,7,22.3
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2021,8,22.7
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2021,9,21.4
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2021,10,20.3
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2021,11,22.8
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2021,12,18.9
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2022,1,21.7
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2022,2,25.0
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2022,3,23.0
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2022,4,24.5
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2022,5,21.8
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2022,6,20.3
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2022,7,20.3
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2022,8,25.0
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2022,9,23.4
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2022,10,20.7
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2022,11,18.8
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2022,12,22.0
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2023,1,22.0
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2023,2,20.9
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2023,3,23.7
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2023,4,25.4
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2023,5,20.7
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2023,6,19.4
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2023,7,21.4
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2023,8,22.0
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2023,9,23.8
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2023,10,20.5
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2023,11,24.5
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2023,12,24.1
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2024,1,20.8
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2024,2,26.0
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2024,3,21.5
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2024,4,24.9
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2024,5,20.9
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2024,6,20.9
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2024,7,24.5
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2024,8,21.4
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2024,9,25.8
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2024,10,22.7
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2024,11,20.6
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2024,12,20.9
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2025,1,24.0
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2025,2,25.9
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2025,3,20.4
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2025,4,22.1
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2025,5,20.9
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2025,6,26.1
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2025,7,20.4
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2025,8,19.8
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2025,9,19.8
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2025,10,22.1
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2025,11,25.6
+bapunagar_cold_storage_&_packaging,Bapunagar Cold Storage & Packaging,Ahmedabad,FOOD_INDUSTRY,22.966146270115956,72.51726922460008,FOOD_WASTE,2025,12,25.5
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2020,1,163.8
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2020,2,153.6
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2020,3,184.6
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2020,4,172.3
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2020,5,184.9
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2020,6,161.9
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2020,7,156.5
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2020,8,186.6
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2020,9,195.5
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2020,10,188.7
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2020,11,186.3
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2020,12,186.9
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2021,1,161.2
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2021,2,176.5
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2021,3,168.0
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2021,4,150.8
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2021,5,150.7
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2021,6,164.0
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2021,7,162.9
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2021,8,185.8
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2021,9,199.7
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2021,10,172.8
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2021,11,198.6
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2021,12,201.3
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2022,1,176.3
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2022,2,168.3
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2022,3,168.7
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2022,4,167.0
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2022,5,167.5
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2022,6,190.6
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2022,7,205.8
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2022,8,202.5
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2022,9,182.6
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2022,10,192.2
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2022,11,200.3
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2022,12,160.9
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2023,1,211.1
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2023,2,203.9
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2023,3,202.1
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2023,4,186.7
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2023,5,169.8
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2023,6,204.3
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2023,7,178.5
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2023,8,204.9
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2023,9,214.6
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2023,10,182.1
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2023,11,182.4
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2023,12,213.2
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2024,1,174.1
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2024,2,171.6
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2024,3,173.0
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2024,4,216.7
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2024,5,211.0
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2024,6,172.7
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2024,7,212.1
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2024,8,221.1
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2024,9,202.3
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2024,10,184.5
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2024,11,196.0
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2024,12,171.8
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2025,1,214.1
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2025,2,196.1
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2025,3,189.1
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2025,4,212.1
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2025,5,183.9
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2025,6,208.6
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2025,7,206.0
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2025,8,171.4
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2025,9,173.7
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2025,10,176.0
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2025,11,173.0
+borsad_dairy_cooperative,Borsad Dairy Cooperative,Anand,FARM,22.61687117553725,72.95952501983064,ANIMAL_MANURE,2025,12,192.5
+charotar_paddy_farms,Charotar Paddy Farms,Kheda,FARM,22.688822207651747,72.72235225397225,RICE_STRAW,2020,10,240.4
+charotar_paddy_farms,Charotar Paddy Farms,Kheda,FARM,22.688822207651747,72.72235225397225,RICE_STRAW,2020,11,234.1
+charotar_paddy_farms,Charotar Paddy Farms,Kheda,FARM,22.688822207651747,72.72235225397225,RICE_STRAW,2021,10,308.2
+charotar_paddy_farms,Charotar Paddy Farms,Kheda,FARM,22.688822207651747,72.72235225397225,RICE_STRAW,2021,11,291.6
+charotar_paddy_farms,Charotar Paddy Farms,Kheda,FARM,22.688822207651747,72.72235225397225,RICE_STRAW,2022,10,254.0
+charotar_paddy_farms,Charotar Paddy Farms,Kheda,FARM,22.688822207651747,72.72235225397225,RICE_STRAW,2022,11,258.2
+charotar_paddy_farms,Charotar Paddy Farms,Kheda,FARM,22.688822207651747,72.72235225397225,RICE_STRAW,2023,10,248.7
+charotar_paddy_farms,Charotar Paddy Farms,Kheda,FARM,22.688822207651747,72.72235225397225,RICE_STRAW,2023,11,272.7
+charotar_paddy_farms,Charotar Paddy Farms,Kheda,FARM,22.688822207651747,72.72235225397225,RICE_STRAW,2024,10,312.8
+charotar_paddy_farms,Charotar Paddy Farms,Kheda,FARM,22.688822207651747,72.72235225397225,RICE_STRAW,2024,11,313.7
+charotar_paddy_farms,Charotar Paddy Farms,Kheda,FARM,22.688822207651747,72.72235225397225,RICE_STRAW,2025,10,257.1
+charotar_paddy_farms,Charotar Paddy Farms,Kheda,FARM,22.688822207651747,72.72235225397225,RICE_STRAW,2025,11,317.4
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2020,1,62.4
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2020,2,57.4
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2020,3,55.2
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2020,4,55.6
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2020,5,67.0
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2020,6,55.7
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2020,7,60.2
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2020,8,56.5
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2020,9,57.5
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2020,10,65.4
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2020,11,67.8
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2020,12,56.6
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2021,1,62.1
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2021,2,53.0
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2021,3,49.5
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2021,4,65.2
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2021,5,56.8
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2021,6,63.7
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2021,7,56.5
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2021,8,64.8
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2021,9,57.5
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2021,10,52.3
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2021,11,49.7
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2021,12,59.0
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2022,1,66.7
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2022,2,52.1
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2022,3,61.6
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2022,4,57.1
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2022,5,59.5
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2022,6,53.1
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2022,7,55.5
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2022,8,59.8
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2022,9,67.0
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2022,10,52.4
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2022,11,59.2
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2022,12,64.8
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2023,1,56.5
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2023,2,55.2
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2023,3,70.5
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2023,4,71.1
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2023,5,61.9
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2023,6,53.9
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2023,7,70.1
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2023,8,60.1
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2023,9,69.7
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2023,10,64.4
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2023,11,68.2
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2023,12,55.9
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2024,1,58.9
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2024,2,62.4
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2024,3,70.9
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2024,4,70.6
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2024,5,58.1
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2024,6,58.8
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2024,7,62.3
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2024,8,64.6
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2024,9,62.0
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2024,10,57.0
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2024,11,59.4
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2024,12,68.6
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2025,1,57.7
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2025,2,68.2
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2025,3,72.1
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2025,4,57.6
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2025,5,73.7
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2025,6,59.2
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2025,7,68.9
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2025,8,67.9
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2025,9,69.5
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2025,10,63.0
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2025,11,65.3
+gandhinagar_municipal_zone___sector_21,Gandhinagar Municipal Zone - Sector 21,Gandhinagar,MUNICIPALITY,23.235662262447025,72.5727746895201,ORGANIC_WASTE,2025,12,68.6
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2020,1,49.8
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2020,2,43.4
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2020,3,52.5
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2020,4,50.5
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2020,5,46.7
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2020,6,54.7
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2020,7,54.9
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2020,8,50.1
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2020,9,45.8
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2020,10,50.3
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2020,11,44.7
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2020,12,45.0
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2021,1,44.7
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2021,2,50.0
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2021,3,51.1
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2021,4,43.9
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2021,5,53.0
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2021,6,44.5
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2021,7,54.5
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2021,8,55.2
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2021,9,51.1
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2021,10,44.1
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2021,11,51.0
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2021,12,49.0
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2022,1,47.4
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2022,2,59.0
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2022,3,61.2
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2022,4,57.0
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2022,5,58.3
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2022,6,48.4
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2022,7,61.0
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2022,8,53.1
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2022,9,60.6
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2022,10,59.9
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2022,11,47.9
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2022,12,57.9
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2023,1,48.4
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2023,2,53.1
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2023,3,59.9
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2023,4,49.9
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2023,5,62.2
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2023,6,51.9
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2023,7,60.9
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2023,8,49.7
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2023,9,55.7
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2023,10,62.6
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2023,11,50.8
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2023,12,51.7
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2024,1,53.2
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2024,2,48.4
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2024,3,50.8
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2024,4,50.5
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2024,5,63.6
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2024,6,59.2
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2024,7,62.9
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2024,8,50.6
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2024,9,61.0
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2024,10,49.7
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2024,11,56.7
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2024,12,58.5
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2025,1,62.4
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2025,2,57.1
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2025,3,57.5
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2025,4,62.6
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2025,5,49.5
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2025,6,64.4
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2025,7,58.3
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2025,8,54.4
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2025,9,61.2
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2025,10,52.2
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2025,11,64.4
+gandhinagar_municipal_zone___sector_7,Gandhinagar Municipal Zone - Sector 7,Gandhinagar,MUNICIPALITY,23.204895833163658,72.66181354457058,ORGANIC_WASTE,2025,12,57.4
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2020,1,129.5
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2020,2,110.2
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2020,3,113.9
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2020,4,118.2
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2020,5,129.3
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2020,6,112.6
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2020,7,129.8
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2020,8,115.4
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2020,9,116.4
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2020,10,116.1
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2020,11,98.7
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2020,12,113.2
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2021,1,96.6
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2021,2,123.7
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2021,3,102.4
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2021,4,112.6
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2021,5,121.2
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2021,6,115.5
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2021,7,107.6
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2021,8,114.2
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2021,9,115.4
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2021,10,123.2
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2021,11,100.1
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2021,12,115.6
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2022,1,104.9
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2022,2,121.6
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2022,3,112.6
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2022,4,114.5
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2022,5,121.2
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2022,6,126.3
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2022,7,110.5
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2022,8,116.2
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2022,9,112.6
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2022,10,112.8
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2022,11,118.9
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2022,12,110.8
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2023,1,113.1
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2023,2,128.9
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2023,3,120.6
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2023,4,126.7
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2023,5,128.9
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2023,6,105.6
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2023,7,115.8
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2023,8,128.9
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2023,9,125.4
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2023,10,101.4
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2023,11,100.9
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2023,12,111.8
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2024,1,102.4
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2024,2,96.8
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2024,3,116.7
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2024,4,120.5
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2024,5,124.3
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2024,6,99.5
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2024,7,118.3
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2024,8,116.4
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2024,9,99.2
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2024,10,123.8
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2024,11,126.6
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2024,12,101.7
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2025,1,112.6
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2025,2,115.7
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2025,3,133.3
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2025,4,127.8
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2025,5,104.4
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2025,6,113.8
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2025,7,116.7
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2025,8,110.6
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2025,9,105.6
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2025,10,109.9
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2025,11,123.9
+kadi_milk_producers_cooperative,Kadi Milk Producers Cooperative,Mehsana,FARM,23.553313844363274,72.35656181449096,ANIMAL_MANURE,2025,12,99.4
+kapadvanj_wheat_farms,Kapadvanj Wheat Farms,Kheda,FARM,22.784408414194875,72.73350146556184,WHEAT_STRAW,2020,3,237.2
+kapadvanj_wheat_farms,Kapadvanj Wheat Farms,Kheda,FARM,22.784408414194875,72.73350146556184,WHEAT_STRAW,2020,4,235.8
+kapadvanj_wheat_farms,Kapadvanj Wheat Farms,Kheda,FARM,22.784408414194875,72.73350146556184,WHEAT_STRAW,2021,3,266.5
+kapadvanj_wheat_farms,Kapadvanj Wheat Farms,Kheda,FARM,22.784408414194875,72.73350146556184,WHEAT_STRAW,2021,4,268.0
+kapadvanj_wheat_farms,Kapadvanj Wheat Farms,Kheda,FARM,22.784408414194875,72.73350146556184,WHEAT_STRAW,2022,3,277.5
+kapadvanj_wheat_farms,Kapadvanj Wheat Farms,Kheda,FARM,22.784408414194875,72.73350146556184,WHEAT_STRAW,2022,4,261.8
+kapadvanj_wheat_farms,Kapadvanj Wheat Farms,Kheda,FARM,22.784408414194875,72.73350146556184,WHEAT_STRAW,2023,3,233.9
+kapadvanj_wheat_farms,Kapadvanj Wheat Farms,Kheda,FARM,22.784408414194875,72.73350146556184,WHEAT_STRAW,2023,4,218.7
+kapadvanj_wheat_farms,Kapadvanj Wheat Farms,Kheda,FARM,22.784408414194875,72.73350146556184,WHEAT_STRAW,2024,3,239.2
+kapadvanj_wheat_farms,Kapadvanj Wheat Farms,Kheda,FARM,22.784408414194875,72.73350146556184,WHEAT_STRAW,2024,4,220.0
+kapadvanj_wheat_farms,Kapadvanj Wheat Farms,Kheda,FARM,22.784408414194875,72.73350146556184,WHEAT_STRAW,2025,3,263.4
+kapadvanj_wheat_farms,Kapadvanj Wheat Farms,Kheda,FARM,22.784408414194875,72.73350146556184,WHEAT_STRAW,2025,4,268.7
+mahisagar_paddy_cooperative,Mahisagar Paddy Cooperative,Kheda,FARM,22.76889480489121,72.71293876492925,RICE_STRAW,2020,10,193.2
+mahisagar_paddy_cooperative,Mahisagar Paddy Cooperative,Kheda,FARM,22.76889480489121,72.71293876492925,RICE_STRAW,2020,11,247.3
+mahisagar_paddy_cooperative,Mahisagar Paddy Cooperative,Kheda,FARM,22.76889480489121,72.71293876492925,RICE_STRAW,2021,10,234.0
+mahisagar_paddy_cooperative,Mahisagar Paddy Cooperative,Kheda,FARM,22.76889480489121,72.71293876492925,RICE_STRAW,2021,11,236.3
+mahisagar_paddy_cooperative,Mahisagar Paddy Cooperative,Kheda,FARM,22.76889480489121,72.71293876492925,RICE_STRAW,2022,10,208.0
+mahisagar_paddy_cooperative,Mahisagar Paddy Cooperative,Kheda,FARM,22.76889480489121,72.71293876492925,RICE_STRAW,2022,11,256.1
+mahisagar_paddy_cooperative,Mahisagar Paddy Cooperative,Kheda,FARM,22.76889480489121,72.71293876492925,RICE_STRAW,2023,10,206.6
+mahisagar_paddy_cooperative,Mahisagar Paddy Cooperative,Kheda,FARM,22.76889480489121,72.71293876492925,RICE_STRAW,2023,11,220.2
+mahisagar_paddy_cooperative,Mahisagar Paddy Cooperative,Kheda,FARM,22.76889480489121,72.71293876492925,RICE_STRAW,2024,10,222.0
+mahisagar_paddy_cooperative,Mahisagar Paddy Cooperative,Kheda,FARM,22.76889480489121,72.71293876492925,RICE_STRAW,2024,11,261.0
+mahisagar_paddy_cooperative,Mahisagar Paddy Cooperative,Kheda,FARM,22.76889480489121,72.71293876492925,RICE_STRAW,2025,10,254.8
+mahisagar_paddy_cooperative,Mahisagar Paddy Cooperative,Kheda,FARM,22.76889480489121,72.71293876492925,RICE_STRAW,2025,11,246.2
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2020,1,340.0
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2020,10,360.2
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2020,11,370.6
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2020,12,373.8
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2021,1,366.0
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2021,10,321.3
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2021,11,350.7
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2021,12,330.9
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2022,1,376.7
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2022,10,314.7
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2022,11,345.7
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2022,12,337.9
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2023,1,414.1
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2023,10,399.8
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2023,11,389.4
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2023,12,395.9
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2024,1,397.3
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2024,10,352.8
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2024,11,426.4
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2024,12,333.1
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2025,1,394.8
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2025,10,328.2
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2025,11,418.5
+nadiad_cotton_growers_group,Nadiad Cotton Growers Group,Kheda,FARM,22.723247447593216,72.66228330875346,COTTON_RESIDUE,2025,12,425.0
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2020,1,48.0
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2020,2,48.4
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2020,3,40.5
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2020,4,41.5
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2020,5,43.0
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2020,6,49.8
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2020,7,43.7
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2020,8,47.4
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2020,9,39.6
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2020,10,40.3
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2020,11,43.2
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2020,12,48.8
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2021,1,50.1
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2021,2,44.6
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2021,3,47.8
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2021,4,47.1
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2021,5,47.1
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2021,6,42.1
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2021,7,53.2
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2021,8,43.3
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2021,9,54.4
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2021,10,53.8
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2021,11,40.7
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2021,12,47.0
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2022,1,56.2
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2022,2,48.5
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2022,3,45.9
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2022,4,45.0
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2022,5,55.9
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2022,6,45.0
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2022,7,50.5
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2022,8,44.0
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2022,9,49.6
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2022,10,56.0
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2022,11,43.9
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2022,12,54.0
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2023,1,55.6
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2023,2,52.8
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2023,3,45.8
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2023,4,55.8
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2023,5,49.6
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2023,6,42.7
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2023,7,42.4
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2023,8,49.7
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2023,9,49.1
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2023,10,46.9
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2023,11,44.4
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2023,12,47.5
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2024,1,54.6
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2024,2,42.2
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2024,3,53.3
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2024,4,54.6
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2024,5,43.9
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2024,6,55.9
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2024,7,52.7
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2024,8,55.5
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2024,9,46.4
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2024,10,47.7
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2024,11,48.0
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2024,12,57.0
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2025,1,48.3
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2025,2,49.3
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2025,3,47.0
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2025,4,43.6
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2025,5,44.4
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2025,6,55.5
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2025,7,47.2
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2025,8,57.0
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2025,9,46.6
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2025,10,46.9
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2025,11,50.6
+naroda_food_processing_unit,Naroda Food Processing Unit,Ahmedabad,FOOD_INDUSTRY,23.019474438064236,72.60017029954079,FOOD_WASTE,2025,12,45.7
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2020,1,115.0
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2020,2,94.6
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2020,3,98.4
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2020,4,103.0
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2020,5,118.3
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2020,6,93.0
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2020,7,104.8
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2020,8,108.0
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2020,9,118.7
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2020,10,116.6
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2020,11,118.1
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2020,12,99.4
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2021,1,102.3
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2021,2,119.1
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2021,3,121.4
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2021,4,95.6
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2021,5,96.4
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2021,6,98.2
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2021,7,98.2
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2021,8,106.3
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2021,9,109.6
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2021,10,99.2
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2021,11,90.9
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2021,12,104.2
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2022,1,108.9
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2022,2,121.2
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2022,3,112.8
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2022,4,107.2
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2022,5,110.5
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2022,6,112.4
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2022,7,92.5
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2022,8,119.5
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2022,9,115.7
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2022,10,118.7
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2022,11,116.3
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2022,12,103.3
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2023,1,94.2
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2023,2,111.2
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2023,3,92.9
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2023,4,93.1
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2023,5,97.6
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2023,6,96.1
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2023,7,101.8
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2023,8,92.6
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2023,9,90.9
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2023,10,95.7
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2023,11,94.2
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2023,12,102.6
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2024,1,115.6
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2024,2,107.5
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2024,3,93.0
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2024,4,96.2
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2024,5,99.2
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2024,6,99.7
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2024,7,92.2
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2024,8,114.8
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2024,9,119.3
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2024,10,102.9
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2024,11,103.4
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2024,12,91.0
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2025,1,96.9
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2025,2,94.5
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2025,3,111.7
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2025,4,91.4
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2025,5,87.1
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2025,6,115.4
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2025,7,102.5
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2025,8,90.9
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2025,9,103.0
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2025,10,87.3
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2025,11,102.5
+vaso_milk_producers_society,Vaso Milk Producers Society,Anand,FARM,22.516651117680222,72.86913118761619,ANIMAL_MANURE,2025,12,116.3
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2020,1,43.8
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2020,2,41.6
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2020,3,45.0
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2020,4,45.4
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2020,5,40.7
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2020,6,42.7
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2020,7,34.7
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2020,8,42.9
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2020,9,39.5
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2020,10,43.1
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2020,11,41.8
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2020,12,37.5
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2021,1,44.0
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2021,2,34.7
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2021,3,38.7
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2021,4,37.2
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2021,5,36.7
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2021,6,41.8
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2021,7,44.6
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2021,8,36.2
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2021,9,40.8
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2021,10,36.7
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2021,11,39.7
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2021,12,37.8
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2022,1,34.5
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2022,2,35.0
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2022,3,43.0
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2022,4,38.3
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2022,5,35.2
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2022,6,43.1
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2022,7,44.1
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2022,8,37.8
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2022,9,34.2
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2022,10,34.8
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2022,11,33.7
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2022,12,36.6
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2023,1,34.6
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2023,2,34.8
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2023,3,38.3
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2023,4,41.9
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2023,5,40.3
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2023,6,36.5
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2023,7,36.5
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2023,8,37.8
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2023,9,36.1
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2023,10,35.7
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2023,11,32.6
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2023,12,35.0
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2024,1,34.9
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2024,2,39.3
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2024,3,40.8
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2024,4,43.6
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2024,5,35.9
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2024,6,36.6
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2024,7,36.3
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2024,8,38.1
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2024,9,38.6
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2024,10,44.6
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2024,11,43.4
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2024,12,43.7
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2025,1,32.8
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2025,2,40.6
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2025,3,42.7
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2025,4,37.9
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2025,5,39.2
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2025,6,32.4
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2025,7,36.9
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2025,8,43.1
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2025,9,41.9
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2025,10,42.2
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2025,11,43.6
+vatva_agro_processing_plant,Vatva Agro Processing Plant,Ahmedabad,FOOD_INDUSTRY,23.00424404108325,72.64284396778034,FOOD_WASTE,2025,12,35.3
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2020,1,131.7
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2020,2,143.9
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2020,3,139.2
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2020,4,120.6
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2020,5,158.9
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2020,6,150.7
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2020,7,158.4
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2020,8,122.3
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2020,9,129.0
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2020,10,119.6
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2020,11,150.3
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2020,12,129.2
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2021,1,132.8
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2021,2,152.8
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2021,3,149.0
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2021,4,126.2
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2021,5,121.7
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2021,6,153.1
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2021,7,138.9
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2021,8,144.2
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2021,9,119.2
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2021,10,117.9
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2021,11,143.7
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2021,12,133.0
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2022,1,150.2
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2022,2,138.1
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2022,3,144.7
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2022,4,116.1
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2022,5,146.9
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2022,6,115.5
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2022,7,147.1
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2022,8,130.9
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2022,9,126.3
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2022,10,134.8
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2022,11,149.7
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2022,12,123.5
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2023,1,131.1
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2023,2,119.9
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2023,3,114.9
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2023,4,116.9
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2023,5,112.5
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2023,6,118.5
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2023,7,122.8
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2023,8,122.5
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2023,9,140.2
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2023,10,121.9
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2023,11,130.1
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2023,12,117.5
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2024,1,111.0
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2024,2,120.1
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2024,3,110.9
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2024,4,138.9
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2024,5,131.8
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2024,6,117.7
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2024,7,128.8
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2024,8,146.7
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2024,9,114.5
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2024,10,142.2
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2024,11,127.2
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2024,12,129.6
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2025,1,130.3
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2025,2,134.8
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2025,3,142.2
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2025,4,154.1
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2025,5,128.2
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2025,6,148.0
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2025,7,142.9
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2025,8,140.1
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2025,9,130.7
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2025,10,128.4
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2025,11,116.6
+visnagar_dairy_society,Visnagar Dairy Society,Mehsana,FARM,23.59579102671111,72.35993489749839,ANIMAL_MANURE,2025,12,119.6
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2020,1,119.7
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2020,2,138.8
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2020,3,131.8
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2020,4,119.2
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2020,5,137.7
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2020,6,118.3
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2020,7,134.6
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2020,8,119.6
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2020,9,120.5
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2020,10,134.3
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2020,11,150.8
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2020,12,121.9
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2021,1,140.9
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2021,2,153.9
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2021,3,138.8
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2021,4,131.5
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2021,5,155.1
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2021,6,117.2
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2021,7,150.3
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2021,8,127.1
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2021,9,121.2
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2021,10,120.1
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2021,11,127.9
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2021,12,148.6
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2022,1,136.9
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2022,2,139.2
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2022,3,128.5
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2022,4,135.5
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2022,5,116.1
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2022,6,115.9
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2022,7,121.8
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2022,8,140.8
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2022,9,130.7
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2022,10,126.1
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2022,11,137.0
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2022,12,131.7
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2023,1,144.5
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2023,2,140.7
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2023,3,122.6
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2023,4,135.8
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2023,5,133.8
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2023,6,147.7
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2023,7,141.9
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2023,8,124.3
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2023,9,151.9
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2023,10,117.6
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2023,11,129.5
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2023,12,143.0
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2024,1,130.0
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2024,2,112.4
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2024,3,137.0
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2024,4,140.8
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2024,5,133.3
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2024,6,145.1
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2024,7,123.1
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2024,8,138.1
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2024,9,134.1
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2024,10,133.5
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2024,11,128.7
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2024,12,143.7
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2025,1,135.3
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2025,2,143.1
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2025,3,118.4
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2025,4,144.6
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2025,5,142.4
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2025,6,156.5
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2025,7,149.5
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2025,8,127.5
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2025,9,131.7
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2025,10,143.3
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2025,11,116.8
+zakariyapura_dairy_cooperative,Zakariyapura Dairy Cooperative,Anand,FARM,22.539106524660635,72.87439986676402,ANIMAL_MANURE,2025,12,134.8

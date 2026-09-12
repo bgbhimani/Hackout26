@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Single fixed light theme - warm, natural, climate-tech SaaS palette.
+ * No dark mode by design (see project brief). Every color the app uses
+ * comes from one of these variables; never hardcode a hex value in a
+ * component - add a token here instead, so the palette stays consistent
+ * and changeable from one place.
+ */
+:root {
+  --background: #fafaf7;
+  --foreground: #26332a;
+
+  --card: #ffffff;
+  --card-foreground: #26332a;
+
+  --primary: #4f7d5a; /* sage / forest green - primary actions, active nav */
+  --primary-foreground: #ffffff;
+  --primary-light: #eaf3ec; /* light green - selected/hover backgrounds */
+
+  --secondary: #e8f0f5; /* soft blue - secondary surfaces */
+  --secondary-foreground: #26332a;
+
+  --accent: #d99a4e; /* warm amber - highlights, warnings, secondary CTAs */
+  --accent-foreground: #26332a;
+  --accent-light: #f7ebd7; /* soft amber - badge backgrounds */
+
+  --muted: #f1f1ec; /* warm gray, slightly off background - subtle panels */
+  --muted-foreground: #6b756d;
+
+  --destructive: #c1502e; /* warm red-orange, not a harsh pure red */
+  --destructive-foreground: #ffffff;
+
+  --border: #e5e7e3;
+  --input: #e5e7e3;
+  --ring: #4f7d5a;
+
+  --radius: 0.75rem;
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
