@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -13,12 +14,14 @@ import {
   Leaf,
   ShieldCheck,
   Building2,
+  Inbox,
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
+import { apiFetch } from "@/lib/api";
 import { Badge } from "@/components/ui/badge";
-import type { UserRole } from "@/types";
+import type { PendingMatchOut, UserRole } from "@/types";
 
 interface NavItem {
   href: string;
@@ -51,6 +54,7 @@ const FACILITY_NAV: NavItem[] = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/map", label: "Operations Map", icon: MapIcon },
   { href: "/facilities", label: "Facility Management", icon: Factory, badge: "Capacity" },
+  { href: "/matching/pending", label: "Pending Requests", icon: Inbox },
   { href: "/routes", label: "Logistics & Routes", icon: RouteIcon, badge: "OR-Tools" },
   { href: "/matching", label: "Feedstock Sourcing", icon: Sparkles, badge: "Intake" },
   { href: "/carbon", label: "Carbon Sequestration", icon: Leaf },
@@ -97,6 +101,21 @@ export function Sidebar({ className, open = true }: { className?: string; open?:
       : role === "FACILITY_OPERATOR"
       ? FACILITY_NAV
       : ADMIN_NAV;
+
+  // A real count, not a fabricated badge: how many match requests are
+  // actually waiting on this facility operator right now. Only fetched for
+  // that role - a generator/admin has nothing to accept or reject here.
+  const [pendingCount, setPendingCount] = useState<number | null>(null);
+  useEffect(() => {
+    if (role !== "FACILITY_OPERATOR") return;
+    let cancelled = false;
+    apiFetch<PendingMatchOut[]>("/api/matching/pending")
+      .then((matches) => !cancelled && setPendingCount(matches.length))
+      .catch(() => !cancelled && setPendingCount(null));
+    return () => {
+      cancelled = true;
+    };
+  }, [role, pathname]);
 
   const RoleIcon = roleMeta.icon;
 
@@ -146,13 +165,19 @@ export function Sidebar({ className, open = true }: { className?: string; open?:
                 <Icon className="h-4 w-4 shrink-0" />
                 <span>{label}</span>
               </div>
-              {badge && (
-                <Badge
-                  variant="outline"
-                  className="ml-auto px-1.5 py-0 text-[10px] font-normal leading-tight"
-                >
-                  {badge}
+              {href === "/matching/pending" && pendingCount !== null && pendingCount > 0 ? (
+                <Badge className="ml-auto px-1.5 py-0 text-[10px] font-semibold leading-tight">
+                  {pendingCount}
                 </Badge>
+              ) : (
+                badge && (
+                  <Badge
+                    variant="outline"
+                    className="ml-auto px-1.5 py-0 text-[10px] font-normal leading-tight"
+                  >
+                    {badge}
+                  </Badge>
+                )
               )}
             </Link>
           );

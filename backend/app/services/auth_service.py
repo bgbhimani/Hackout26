@@ -77,6 +77,12 @@ def register_facility_operator(db: Session, payload: FacilityOperatorSignupReque
         role=UserRole.FACILITY_OPERATOR,
     )
     db.add(user)
+    # id is a Python-side default (uuid.uuid4) applied at flush, not at
+    # construction - flush now so user.id is real before it's used below as
+    # the facility's owner. This owner link is what accept_match/reject_match
+    # (matching_service.py) check to confirm only this operator can act on
+    # matches offered to their facility.
+    db.flush()
 
     facility = Facility(
         name=payload.facility_name,
@@ -87,6 +93,7 @@ def register_facility_operator(db: Session, payload: FacilityOperatorSignupReque
         address=payload.address,
         location=point_from_lat_lng(payload.latitude, payload.longitude),
         status=FacilityStatus.ACTIVE,
+        user_id=user.id,
     )
     db.add(facility)
 

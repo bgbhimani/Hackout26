@@ -167,7 +167,7 @@ function MatchingPageContent() {
             by score
           </p>
           {recommendations.map((rec, i) => (
-            <RecommendationCard key={rec.facility_id} rec={rec} rank={i + 1} wasteRecordId={selectedId} />
+            <RecommendationCard key={rec.facility_id} rec={rec} rank={i + 1} />
           ))}
         </div>
       )}

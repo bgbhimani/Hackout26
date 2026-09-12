@@ -1,8 +1,6 @@
-import Link from "next/link";
-import { ArrowRight, CheckCircle2, TriangleAlert } from "lucide-react";
+import { CheckCircle2, Clock, TriangleAlert } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { FacilityRecommendation } from "@/types";
 
@@ -42,18 +40,7 @@ function BreakdownBar({ label, value }: { label: string; value: number }) {
   );
 }
 
-export function RecommendationCard({
-  rec,
-  rank,
-  wasteRecordId,
-}: {
-  rec: FacilityRecommendation;
-  rank: number;
-  /** When provided, renders a "Continue to Route Optimization" link that
-   * carries this match forward - the Match → Route → Carbon integration
-   * (Phase 9) instead of making the user re-select everything on the next page. */
-  wasteRecordId?: string;
-}) {
+export function RecommendationCard({ rec, rank }: { rec: FacilityRecommendation; rank: number }) {
   const tone = scoreTone(rec.match_score);
 
   return (
@@ -117,14 +104,10 @@ export function RecommendationCard({
           })}
         </div>
 
-        {wasteRecordId && (
-          <div className="border-t border-border pt-3">
-            <Button asChild variant="outline" size="sm">
-              <Link href={`/routes?facilityId=${rec.facility_id}&wasteId=${wasteRecordId}`}>
-                Continue to Route Optimization
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </Button>
+        {rec.match_id && (
+          <div className="flex items-center gap-1.5 border-t border-border pt-3 text-xs text-muted-foreground">
+            <Clock className="h-3.5 w-3.5" />
+            Request sent — awaiting the facility operator to accept or reject
           </div>
         )}
       </CardContent>

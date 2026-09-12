@@ -18,10 +18,10 @@ import uuid
 
 from fastapi import HTTPException, status
 from ortools.constraint_solver import pywrapcp, routing_enums_pb2
-from sqlalchemy import func
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session, joinedload
 
-from app.constants.enums import FacilityStatus, RouteStatus
+from app.constants.enums import FacilityStatus, MatchStatus, RouteStatus, WasteStatus
 from app.constants.matching_config import TRANSPORT_COST_PER_TONNE_KM
 from app.constants.route_config import (
     DEFAULT_VEHICLE_CAPACITY_TONNES,
@@ -32,12 +32,19 @@ from app.constants.route_config import (
 )
 from app.database.geo import build_distance_matrix_km
 from app.models.facility import Facility
+from app.models.match import Match
 from app.models.route import Route
 from app.models.route_stop import RouteStop
 from app.models.waste_record import WasteRecord
 from app.schemas.route import DroppedStop, RouteOptimizeRequest, RouteOut, RouteStopOut
 
 DEPOT = 0
+
+
+def _missing_accepted_ids(requested_ids: set[uuid.UUID], accepted_ids: set[uuid.UUID]) -> set[uuid.UUID]:
+    """Pure set-difference, pulled out so it's unit-testable without a
+    database (see tests/test_route_service.py)."""
+    return requested_ids - accepted_ids
 
 
 class _Stop:
@@ -62,11 +69,38 @@ def optimize_route(db: Session, req: RouteOptimizeRequest) -> RouteOut:
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Facility is not active")
 
     waste_records = db.query(WasteRecord).filter(WasteRecord.id.in_(req.waste_record_ids)).all()
+    waste_records_by_id = {r.id: r for r in waste_records}
     found_ids = {r.id for r in waste_records}
     missing = set(req.waste_record_ids) - found_ids
     if missing:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail=f"Waste record(s) not found: {', '.join(map(str, missing))}"
+        )
+
+    # A route can only be built from waste a Facility Operator has actually
+    # ACCEPTED (matching_service.accept_match) - never from arbitrary waste
+    # record ids a caller happens to pass in. This is the real enforcement
+    # point of the confirmation flow; get_accepted_matches_for_facility (used
+    # by the Routes page) is only a UI convenience for picking which of these
+    # to include, not what's trusted here.
+    accepted_ids = {
+        m.waste_record_id
+        for m in db.scalars(
+            select(Match).where(
+                Match.facility_id == req.facility_id,
+                Match.waste_record_id.in_(found_ids),
+                Match.status == MatchStatus.ACCEPTED,
+            )
+        ).all()
+    }
+    not_accepted = _missing_accepted_ids(found_ids, accepted_ids)
+    if not_accepted:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=(
+                "Waste record(s) not ACCEPTED for this facility - the facility operator must accept the "
+                f"match first: {', '.join(map(str, not_accepted))}"
+            ),
         )
 
     dropped_stops: list[DroppedStop] = []
@@ -210,6 +244,12 @@ def optimize_route(db: Session, req: RouteOptimizeRequest) -> RouteOut:
         s = stops[n - 1]
         for wr_id, qty in zip(s.waste_record_ids, s.quantities):
             db.add(RouteStop(route_id=route.id, waste_record_id=wr_id, stop_order=order, quantity_tonnes=qty))
+            # This is the actual collection event in this simplified model -
+            # there's no live truck-arrival tracking, so "included in a
+            # planned route" is what "COLLECTED" means. A stop the optimizer
+            # dropped (see dropped_stops above) is deliberately left PENDING,
+            # not touched here - it's still accepted, just not on this trip.
+            waste_records_by_id[wr_id].status = WasteStatus.COLLECTED
         stop_outs.append(
             RouteStopOut(
                 stop_order=order,

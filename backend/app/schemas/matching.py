@@ -31,6 +31,11 @@ class FacilityRecommendation(BaseModel):
     estimated_transport_cost: float
     reasons: list[str]
     score_breakdown: ScoreBreakdown
+    # The persisted Match row this recommendation corresponds to (recommend_
+    # facilities() always persists as RECOMMENDED - see matching_service.py).
+    # The frontend needs this to do nothing more than show "request sent";
+    # only the facility operator can act on it via POST /{match_id}/accept.
+    match_id: uuid.UUID | None = None
 
 
 class MatchOut(BaseModel):
@@ -51,3 +56,16 @@ class MatchOut(BaseModel):
     reasons: list[str]
     status: MatchStatus
     created_at: datetime
+
+
+class PendingMatchOut(MatchOut):
+    """MatchOut plus the waste-side context a facility operator needs to
+    actually decide whether to accept - who's offering what. Used by
+    GET /api/matching/pending and GET /api/matching/accepted; the plain
+    MatchOut shape (no waste details) remains what GET /{waste_id} returns,
+    since a generator viewing their own waste record's matches already
+    knows what waste it is."""
+
+    waste_type: WasteType
+    quantity_tonnes: float
+    generator_name: str

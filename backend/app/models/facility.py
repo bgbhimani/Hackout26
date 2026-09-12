@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import TYPE_CHECKING
 
 from geoalchemy2 import Geography
-from sqlalchemy import ARRAY, DateTime, Enum, Numeric, String, func
+from sqlalchemy import ARRAY, DateTime, Enum, ForeignKey, Numeric, String, func
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -33,6 +33,16 @@ class Facility(Base):
     location: Mapped[str] = mapped_column(Geography(geometry_type="POINT", srid=4326), nullable=False)
     status: Mapped[FacilityStatus] = mapped_column(
         Enum(FacilityStatus, name="facility_status"), nullable=False, default=FacilityStatus.ACTIVE
+    )
+    # The Facility Operator who registered this facility (nullable: facilities
+    # seeded by scripts/seed_demo_data.py, or created by an ADMIN on someone's
+    # behalf, have no owner). ON DELETE SET NULL rather than CASCADE - deleting
+    # a user account should orphan the facility, not delete it and every match/
+    # route/carbon record built on it. This is what lets the accept/reject
+    # confirmation flow (matching_service.accept_match) verify that only the
+    # operator who actually runs this facility can act on a match for it.
+    user_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("users.id", ondelete="SET NULL"), nullable=True, index=True
     )
 
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())

@@ -3,11 +3,13 @@ Pure unit tests for the matching engine's scoring math - no database. These
 exercise the exact formulas documented in app/services/matching_service.py
 and app/constants/matching_config.py.
 """
+from app.constants.enums import MatchStatus
 from app.constants.matching_config import MATCHING_WEIGHTS, MAX_MATCHING_DISTANCE_KM
 from app.services.matching_service import (
     _build_reasons,
     _capacity_score,
     _distance_score,
+    _is_actionable,
     _utilization_score,
 )
 
@@ -88,3 +90,23 @@ def test_reasons_flag_long_distance():
         utilization_percent=50,
     )
     assert "Long transport distance" in reasons
+
+
+# --- Confirmation flow (accept/reject) -------------------------------------
+# accept_match/reject_match themselves need a real database (facility/match/
+# waste_record rows, ownership checks) and this repo has no DB test fixture
+# infrastructure yet (see conftest - there isn't one), so only the pure
+# decision rule they depend on is unit-tested here. Full accept/reject
+# integration coverage is a known gap, not a silent omission.
+
+
+def test_only_a_recommended_match_is_actionable():
+    assert _is_actionable(MatchStatus.RECOMMENDED) is True
+
+
+def test_an_already_accepted_match_is_not_actionable_again():
+    assert _is_actionable(MatchStatus.ACCEPTED) is False
+
+
+def test_an_already_rejected_match_is_not_actionable_again():
+    assert _is_actionable(MatchStatus.REJECTED) is False

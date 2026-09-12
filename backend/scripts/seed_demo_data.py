@@ -28,6 +28,7 @@ from app.constants.enums import FacilityStatus, FacilityType, GeneratorType, Was
 from app.database.geo import point_from_lat_lng
 from app.database.session import get_engine
 from app.models.facility import Facility
+from app.models.user import User
 from app.models.waste_generator import WasteGenerator
 from app.models.waste_record import WasteRecord
 
@@ -328,22 +329,40 @@ def seed_generators_and_waste(db: Session) -> int:
 
 
 def seed_facilities(db: Session) -> int:
-    for spec in FACILITIES:
+    # The first facility is linked to the demo facility@example.com account
+    # below (see main()) so the demo login can actually exercise the accept/
+    # reject confirmation flow - every other seeded facility stays ownerless
+    # (user_id NULL), same as any facility an ADMIN creates on the CRUD page.
+    first_facility: Facility | None = None
+    for i, spec in enumerate(FACILITIES):
         centre_lat, centre_lng = DISTRICT_CENTRES[spec["district"]]
         lat, lng = jitter(centre_lat, centre_lng, km=5.0)
-        db.add(
-            Facility(
-                name=spec["name"],
-                facility_type=spec["facility_type"],
-                capacity_tonnes=spec["capacity_tonnes"],
-                current_load_tonnes=spec["current_load_tonnes"],
-                accepted_waste_types=spec["accepted_waste_types"],
-                address=spec["address"],
-                location=point_from_lat_lng(lat, lng),
-                status=FacilityStatus.ACTIVE,
-            )
+        facility = Facility(
+            name=spec["name"],
+            facility_type=spec["facility_type"],
+            capacity_tonnes=spec["capacity_tonnes"],
+            current_load_tonnes=spec["current_load_tonnes"],
+            accepted_waste_types=spec["accepted_waste_types"],
+            address=spec["address"],
+            location=point_from_lat_lng(lat, lng),
+            status=FacilityStatus.ACTIVE,
         )
+        db.add(facility)
+        if i == 0:
+            first_facility = facility
     db.commit()
+
+    demo_operator = db.scalar(select(User).where(User.email == "facility@example.com"))
+    if demo_operator is not None and first_facility is not None:
+        first_facility.user_id = demo_operator.id
+        db.commit()
+        print(f"Linked '{first_facility.name}' to facility@example.com for the demo confirmation flow.")
+    else:
+        print(
+            "Note: facility@example.com not found - run `python -m scripts.seed_users` first if you want the "
+            "demo facility operator account to own a seeded facility."
+        )
+
     return len(FACILITIES)
 
 

@@ -1,8 +1,7 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
-import { useSearchParams } from "next/navigation";
 import { Route as RouteIcon, TriangleAlert, Truck, Weight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -15,7 +14,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { KpiCard } from "@/components/dashboard/kpi-card";
 import { RouteTimeline } from "@/components/routes/route-timeline";
 import { apiFetch, ApiError } from "@/lib/api";
-import type { Facility, OptimizedRoute, WasteRecordWithGenerator } from "@/types";
+import type { Facility, OptimizedRoute, PendingMatchOut } from "@/types";
 
 const RouteMap = dynamic(() => import("@/components/routes/route-map").then((m) => m.RouteMap), {
   ssr: false,
@@ -33,23 +32,16 @@ const WASTE_TYPE_LABEL: Record<string, string> = {
 };
 
 export default function RoutesPage() {
-  return (
-    <Suspense fallback={<Skeleton className="h-64 w-full" />}>
-      <RoutesPageContent />
-    </Suspense>
-  );
-}
-
-function RoutesPageContent() {
-  const searchParams = useSearchParams();
-  const deepLinkedFacilityId = searchParams.get("facilityId");
-  const deepLinkedWasteId = searchParams.get("wasteId");
-  const hasAppliedDeepLink = useRef(false);
-
   const [facilities, setFacilities] = useState<Facility[]>([]);
-  const [wasteRecords, setWasteRecords] = useState<WasteRecordWithGenerator[]>([]);
-  const [loadingData, setLoadingData] = useState(true);
+  const [loadingFacilities, setLoadingFacilities] = useState(true);
   const [facilityId, setFacilityId] = useState("");
+
+  // Waste a route can actually be built from: matches this facility's
+  // operator has ACCEPTED (see matching/pending), not yet routed. This is a
+  // UI convenience mirroring what POST /api/routes/optimize independently
+  // re-validates server-side - it can't be bypassed by editing this list.
+  const [acceptedMatches, setAcceptedMatches] = useState<PendingMatchOut[]>([]);
+  const [loadingMatches, setLoadingMatches] = useState(false);
   const [selectedWasteIds, setSelectedWasteIds] = useState<Set<string>>(new Set());
   const [vehicleCapacity, setVehicleCapacity] = useState<string>("");
   const [route, setRoute] = useState<OptimizedRoute | null>(null);
@@ -58,56 +50,53 @@ function RoutesPageContent() {
 
   useEffect(() => {
     let cancelled = false;
-    Promise.all([apiFetch<Facility[]>("/api/facilities"), apiFetch<WasteRecordWithGenerator[]>("/api/waste")])
-      .then(([f, w]) => {
+    apiFetch<Facility[]>("/api/facilities")
+      .then((f) => {
         if (cancelled) return;
         setFacilities(f);
-        setWasteRecords(w.filter((r) => r.status === "AVAILABLE"));
-        // Arriving from a Smart Matching recommendation (Match → Route
-        // integration, Phase 9) pre-selects that exact facility.
-        const preselected = deepLinkedFacilityId && f.some((fac) => fac.id === deepLinkedFacilityId);
-        if (preselected) setFacilityId(deepLinkedFacilityId!);
-        else if (f[0]) setFacilityId(f[0].id);
+        if (f[0]) setFacilityId(f[0].id);
       })
-      .catch((err) => !cancelled && setError(err instanceof Error ? err.message : "Failed to load data"))
-      .finally(() => !cancelled && setLoadingData(false));
+      .catch((err) => !cancelled && setError(err instanceof Error ? err.message : "Failed to load facilities"))
+      .finally(() => !cancelled && setLoadingFacilities(false));
     return () => {
       cancelled = true;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [deepLinkedFacilityId]);
+  }, []);
+
+  useEffect(() => {
+    if (!facilityId) return;
+    let cancelled = false;
+    setLoadingMatches(true);
+    setError(null);
+    apiFetch<PendingMatchOut[]>(`/api/matching/accepted?facility_id=${facilityId}`)
+      .then((matches) => {
+        if (cancelled) return;
+        setAcceptedMatches(matches);
+        setSelectedWasteIds(new Set(matches.map((m) => m.waste_record_id)));
+        const total = matches.reduce((sum, m) => sum + m.quantity_tonnes, 0);
+        setVehicleCapacity(total > 0 ? Math.ceil(total).toString() : "300");
+        setRoute(null);
+      })
+      .catch((err) => {
+        if (cancelled) return;
+        // A FACILITY_OPERATOR viewing a facility they don't own gets a real
+        // 403 here - show it as "nothing to route" rather than a scary error,
+        // since picking someone else's facility from the dropdown is a valid
+        // (if unproductive) thing to do, not a bug.
+        if (err instanceof ApiError && err.status === 403) {
+          setAcceptedMatches([]);
+          setSelectedWasteIds(new Set());
+        } else {
+          setError(err instanceof Error ? err.message : "Failed to load accepted matches");
+        }
+      })
+      .finally(() => !cancelled && setLoadingMatches(false));
+    return () => {
+      cancelled = true;
+    };
+  }, [facilityId]);
 
   const selectedFacility = useMemo(() => facilities.find((f) => f.id === facilityId), [facilities, facilityId]);
-
-  const compatibleWaste = useMemo(
-    () =>
-      selectedFacility
-        ? wasteRecords.filter((r) => selectedFacility.accepted_waste_types.includes(r.waste_type))
-        : [],
-    [wasteRecords, selectedFacility]
-  );
-
-  // Default selection: everything compatible, and a vehicle capacity that
-  // comfortably covers it - so the optimizer has a realistic "everything
-  // fits" starting point, and the user can lower capacity to see stops drop.
-  // EXCEPT the first time we arrive via a Matching deep link: start with
-  // just that one waste record selected, so the route visibly starts from
-  // "the thing you just matched" rather than defaulting to everything.
-  useEffect(() => {
-    const deepLinkedRecordIsCompatible =
-      !hasAppliedDeepLink.current && deepLinkedWasteId && compatibleWaste.some((r) => r.id === deepLinkedWasteId);
-
-    if (deepLinkedRecordIsCompatible) {
-      setSelectedWasteIds(new Set([deepLinkedWasteId!]));
-      hasAppliedDeepLink.current = true;
-    } else {
-      setSelectedWasteIds(new Set(compatibleWaste.map((r) => r.id)));
-    }
-    const total = compatibleWaste.reduce((sum, r) => sum + r.quantity_tonnes, 0);
-    setVehicleCapacity(total > 0 ? Math.ceil(total).toString() : "300");
-    setRoute(null);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [compatibleWaste]);
 
   function toggleWaste(id: string) {
     setSelectedWasteIds((prev) => {
@@ -133,6 +122,10 @@ function RoutesPageContent() {
         }),
       });
       setRoute(result);
+      // Routed waste records move to COLLECTED server-side - drop them from
+      // the pickable list rather than refetching.
+      setAcceptedMatches((prev) => prev.filter((m) => !selectedWasteIds.has(m.waste_record_id)));
+      setSelectedWasteIds(new Set());
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Failed to optimize route");
     } finally {
@@ -145,11 +138,12 @@ function RoutesPageContent() {
       <div>
         <h1 className="text-2xl font-semibold text-foreground">Route Optimization</h1>
         <p className="text-sm text-muted-foreground">
-          A real capacitated vehicle routing solve (Google OR-Tools) - not a straight line between points.
+          A real capacitated vehicle routing solve (Google OR-Tools) - built only from waste this facility has
+          already accepted, not a straight line between points.
         </p>
       </div>
 
-      {loadingData ? (
+      {loadingFacilities ? (
         <Skeleton className="h-64 w-full" />
       ) : (
         <Card>
@@ -177,34 +171,40 @@ function RoutesPageContent() {
               </div>
             </div>
 
-            {compatibleWaste.length === 0 ? (
+            {loadingMatches ? (
+              <Skeleton className="h-24 w-full" />
+            ) : acceptedMatches.length === 0 ? (
               <EmptyState
                 icon={Truck}
-                title="No compatible available waste"
-                description="No AVAILABLE waste record matches this facility's accepted waste types."
+                title="No accepted waste to collect"
+                description={
+                  selectedFacility
+                    ? `No generator's match has been accepted for ${selectedFacility.name} yet - accept a request on the Pending Requests page first.`
+                    : "Select a facility you operate to see waste it has accepted."
+                }
               />
             ) : (
               <div className="space-y-1.5">
-                <Label>Waste records to collect ({selectedWasteIds.size} selected)</Label>
+                <Label>Accepted waste to collect ({selectedWasteIds.size} selected)</Label>
                 <div className="max-h-48 space-y-1 overflow-y-auto rounded-md border border-border p-2">
-                  {compatibleWaste.map((r) => (
+                  {acceptedMatches.map((m) => (
                     <label
-                      key={r.id}
+                      key={m.waste_record_id}
                       className="flex cursor-pointer items-center justify-between gap-2 rounded px-2 py-1.5 text-sm hover:bg-muted"
                     >
                       <span className="flex items-center gap-2">
                         <input
                           type="checkbox"
-                          checked={selectedWasteIds.has(r.id)}
-                          onChange={() => toggleWaste(r.id)}
+                          checked={selectedWasteIds.has(m.waste_record_id)}
+                          onChange={() => toggleWaste(m.waste_record_id)}
                           className="accent-primary"
                         />
-                        {r.generator_name}
+                        {m.generator_name}
                         <span className="text-xs text-muted-foreground">
-                          ({WASTE_TYPE_LABEL[r.waste_type] ?? r.waste_type})
+                          ({WASTE_TYPE_LABEL[m.waste_type] ?? m.waste_type})
                         </span>
                       </span>
-                      <span className="text-xs text-muted-foreground">{r.quantity_tonnes} t</span>
+                      <span className="text-xs text-muted-foreground">{m.quantity_tonnes} t</span>
                     </label>
                   ))}
                 </div>

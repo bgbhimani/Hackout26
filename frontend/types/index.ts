@@ -20,6 +20,8 @@ export type WasteType =
 
 export type WasteStatus = "AVAILABLE" | "PENDING" | "COLLECTED" | "PROCESSED";
 
+export type MatchStatus = "RECOMMENDED" | "ACCEPTED" | "REJECTED";
+
 export type FacilityType = "BIOCHAR" | "BIOGAS" | "BIOMASS_CONVERSION";
 
 export type FacilityStatus = "ACTIVE" | "INACTIVE" | "MAINTENANCE";
@@ -105,6 +107,35 @@ export interface FacilityRecommendation {
   estimated_transport_cost: number;
   reasons: string[];
   score_breakdown: ScoreBreakdown;
+  /** The persisted Match row this recommendation was saved as (always
+   * RECOMMENDED at this point) - only the facility operator can act on it,
+   * via POST /api/matching/{match_id}/accept|reject. */
+  match_id: string | null;
+}
+
+/** A persisted Match row (GET /api/matching/{waste_id}, and the accept/
+ * reject endpoints' response). */
+export interface MatchOut {
+  id: string;
+  waste_record_id: string;
+  facility_id: string;
+  facility_name: string;
+  compatibility_score: number;
+  distance_km: number;
+  estimated_transport_cost: number;
+  reasons: string[];
+  status: MatchStatus;
+  created_at: string;
+}
+
+/** MatchOut plus the waste-side context a facility operator needs to decide
+ * whether to accept - who's offering what. Returned by GET /api/matching/
+ * pending (RECOMMENDED, awaiting a decision) and GET /api/matching/accepted
+ * (ACCEPTED, awaiting a route). */
+export interface PendingMatchOut extends MatchOut {
+  waste_type: WasteType;
+  quantity_tonnes: number;
+  generator_name: string;
 }
 
 export interface CarbonRecord {
