@@ -8,6 +8,7 @@ import type {
   DashboardAnalytics,
   DashboardSummary,
   Facility,
+  Generator,
   OptimizedRoute,
   WasteRecordWithGenerator,
 } from "@/types";
@@ -15,6 +16,7 @@ import type {
 interface State {
   summary: DashboardSummary | null;
   analytics: DashboardAnalytics | null;
+  generators: Generator[];
   wasteRecords: WasteRecordWithGenerator[];
   facilities: Facility[];
   routes: OptimizedRoute[];
@@ -27,6 +29,7 @@ export function useDashboardData() {
   const [state, setState] = useState<State>({
     summary: null,
     analytics: null,
+    generators: [],
     wasteRecords: [],
     facilities: [],
     routes: [],
@@ -40,9 +43,10 @@ export function useDashboardData() {
 
     async function load() {
       try {
-        const [summary, analytics, wasteRecords, facilities, routes, carbonRecords] = await Promise.all([
+        const [summary, analytics, generators, wasteRecords, facilities, routes, carbonRecords] = await Promise.all([
           apiFetch<DashboardSummary>("/api/dashboard/summary"),
           apiFetch<DashboardAnalytics>("/api/dashboard/analytics"),
+          apiFetch<Generator[]>("/api/generators").catch(() => []),
           apiFetch<WasteRecordWithGenerator[]>("/api/waste").catch(() => []),
           apiFetch<Facility[]>("/api/facilities").catch(() => []),
           apiFetch<OptimizedRoute[]>("/api/routes").catch(() => []),
@@ -53,6 +57,7 @@ export function useDashboardData() {
           setState({
             summary,
             analytics,
+            generators: Array.isArray(generators) ? generators : [],
             wasteRecords: Array.isArray(wasteRecords) ? wasteRecords : [],
             facilities: Array.isArray(facilities) ? facilities : [],
             routes: Array.isArray(routes) ? routes : [],
@@ -66,6 +71,7 @@ export function useDashboardData() {
           setState({
             summary: null,
             analytics: null,
+            generators: [],
             wasteRecords: [],
             facilities: [],
             routes: [],

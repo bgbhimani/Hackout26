@@ -30,6 +30,7 @@ import type {
   DashboardSummary,
   Facility,
   OptimizedRoute,
+  User,
   WasteRecordWithGenerator,
 } from "@/types";
 
@@ -40,6 +41,7 @@ const FACILITY_TYPE_LABEL: Record<string, string> = {
 };
 
 interface FacilityDashboardProps {
+  currentUser?: User | null;
   summary: DashboardSummary;
   analytics: DashboardAnalytics;
   wasteRecords: WasteRecordWithGenerator[];
@@ -49,6 +51,7 @@ interface FacilityDashboardProps {
 }
 
 export function FacilityDashboard({
+  currentUser,
   summary,
   analytics,
   wasteRecords,
@@ -56,11 +59,24 @@ export function FacilityDashboard({
   routes,
   carbonRecords,
 }: FacilityDashboardProps) {
-  const totalCapacity = facilities.reduce((acc, f) => acc + (f.capacity_tonnes || 0), 0);
-  const totalLoad = facilities.reduce((acc, f) => acc + (f.current_load_tonnes || 0), 0);
+  // Determine if specific facility is linked to the logged in operator
+  const userFacilities =
+    currentUser?.email === "facility1@example.com"
+      ? facilities.filter((f) => f.name.toLowerCase().includes("anand") || f.facility_type === "BIOGAS")
+      : currentUser?.email === "facility2@example.com"
+      ? facilities.filter((f) => f.name.toLowerCase().includes("kheda") || f.facility_type === "BIOCHAR")
+      : facilities;
+
+  const userFacilityIds = new Set(userFacilities.map((f) => f.id));
+  const userRoutes = routes.filter((r) => userFacilityIds.has(r.facility_id));
+  const userCarbonRecords = carbonRecords.filter((c) => userFacilityIds.has(c.facility_id));
+
+  const totalCapacity = userFacilities.reduce((acc, f) => acc + (f.capacity_tonnes || 0), 0);
+  const totalLoad = userFacilities.reduce((acc, f) => acc + (f.current_load_tonnes || 0), 0);
   const remainingIntake = Math.max(0, totalCapacity - totalLoad);
-  const activeRoutesCount = routes.filter((r) => r.status === "PLANNED" || r.status === "IN_PROGRESS").length;
+  const activeRoutesCount = userRoutes.filter((r) => r.status === "PLANNED" || r.status === "IN_PROGRESS").length;
   const overallUtilization = totalCapacity > 0 ? Math.round((totalLoad / totalCapacity) * 100) : 0;
+  const totalUserCarbon = userCarbonRecords.reduce((acc, c) => acc + (c.net_co2_impact_tonnes || 0), 0);
 
   const getStatusBadge = (status: string) => {
     switch (status) {
@@ -135,14 +151,14 @@ export function FacilityDashboard({
         />
         <KpiCard
           label="Active Inbound Routes"
-          value={(activeRoutesCount || summary.active_routes).toString()}
+          value={activeRoutesCount.toString()}
           unit="dispatches"
           icon={Truck}
           tone="secondary"
         />
         <KpiCard
           label="Net CO₂ Sequestered"
-          value={summary.estimated_co2_impact_tonnes.toLocaleString()}
+          value={totalUserCarbon > 0 ? totalUserCarbon.toLocaleString() : summary.estimated_co2_impact_tonnes.toLocaleString()}
           unit="t CO₂e"
           icon={Leaf}
           tone="primary"
@@ -259,13 +275,13 @@ export function FacilityDashboard({
           </Link>
         </CardHeader>
         <CardContent>
-          {facilities.length === 0 ? (
+          {userFacilities.length === 0 ? (
             <div className="py-8 text-center text-sm text-muted-foreground">
               No facilities registered yet. Click &quot;Manage Plants&quot; to register your first conversion facility.
             </div>
           ) : (
             <div className="space-y-4">
-              {facilities.map((fac) => {
+              {userFacilities.map((fac) => {
                 const util = fac.utilization_percent ?? Math.round((fac.current_load_tonnes / fac.capacity_tonnes) * 100);
                 const isHigh = util > 85;
                 const isMedium = util > 50;

@@ -13,7 +13,7 @@ import { FacilityDashboard } from "@/components/dashboard/facility-dashboard";
 
 export default function DashboardPage() {
   const { user } = useAuth();
-  const { summary, analytics, wasteRecords, facilities, routes, carbonRecords, loading, error } =
+  const { summary, analytics, generators, wasteRecords, facilities, routes, carbonRecords, loading, error } =
     useDashboardData();
 
   if (error) {
@@ -124,6 +124,8 @@ export default function DashboardPage() {
 
           {role === "WASTE_GENERATOR" && (
             <GeneratorDashboard
+              currentUser={user}
+              generators={generators}
               summary={summary}
               analytics={analytics}
               wasteRecords={wasteRecords}
@@ -135,6 +137,7 @@ export default function DashboardPage() {
 
           {role === "FACILITY_OPERATOR" && (
             <FacilityDashboard
+              currentUser={user}
               summary={summary}
               analytics={analytics}
               wasteRecords={wasteRecords}

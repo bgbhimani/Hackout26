@@ -7,6 +7,7 @@ responses, and authentication. Phase 2 adds generators/waste/facilities CRUD.
 Later phases add the remaining routers (forecast, matching, routes, carbon,
 dashboard) - see docs/architecture.md for the phase plan.
 """
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -22,12 +23,26 @@ from app.api.routes import router as routes_router
 from app.api.waste import router as waste_router
 from app.core.config import settings
 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Auto-seed demo data if the database is brand new/empty
+    try:
+        from scripts.seed_all import auto_seed_if_empty
+
+        auto_seed_if_empty()
+    except Exception as e:
+        print(f"[Startup Lifespan] Auto-seeding check skipped: {e}")
+    yield
+
+
 app = FastAPI(
     title="Waste-to-Carbon Value Chain Tracker API",
     description="Connects waste generators with carbon-conversion facilities: "
     "predicts waste availability, matches it to suitable facilities, optimizes "
     "collection routes, and estimates the resulting CO2 impact.",
     version="0.1.0",
+    lifespan=lifespan,
 )
 
 app.add_middleware(

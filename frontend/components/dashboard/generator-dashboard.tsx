@@ -28,7 +28,9 @@ import type {
   DashboardAnalytics,
   DashboardSummary,
   Facility,
+  Generator,
   OptimizedRoute,
+  User,
   WasteRecordWithGenerator,
 } from "@/types";
 
@@ -43,6 +45,8 @@ const WASTE_TYPE_LABEL: Record<string, string> = {
 };
 
 interface GeneratorDashboardProps {
+  currentUser?: User | null;
+  generators?: Generator[];
   summary: DashboardSummary;
   analytics: DashboardAnalytics;
   wasteRecords: WasteRecordWithGenerator[];
@@ -52,6 +56,8 @@ interface GeneratorDashboardProps {
 }
 
 export function GeneratorDashboard({
+  currentUser,
+  generators = [],
   summary,
   analytics,
   wasteRecords,
@@ -59,18 +65,39 @@ export function GeneratorDashboard({
   routes,
   carbonRecords,
 }: GeneratorDashboardProps) {
+  // Find generator entity linked to current user
+  const linkedGenerator = generators.find(
+    (g) =>
+      (currentUser?.email && g.email?.toLowerCase() === currentUser.email.toLowerCase()) ||
+      (currentUser?.name && g.contact_name?.toLowerCase().includes(currentUser.name.toLowerCase()))
+  );
+
+  // Filter waste records for this specific generator if linked
+  const userWasteRecords = linkedGenerator
+    ? wasteRecords.filter((r) => r.generator_id === linkedGenerator.id)
+    : currentUser?.email === "generator1@example.com"
+    ? wasteRecords.filter((r) => r.generator_name?.toLowerCase().includes("dairy") || r.generator_name?.toLowerCase().includes("zakariyapura"))
+    : currentUser?.email === "generator2@example.com"
+    ? wasteRecords.filter((r) => r.generator_name?.toLowerCase().includes("charotar") || r.generator_name?.toLowerCase().includes("paddy"))
+    : wasteRecords;
+
   // Compute generator specific metrics
-  const availableRecords = wasteRecords.filter((r) => r.status === "AVAILABLE");
-  const pendingRecords = wasteRecords.filter((r) => r.status === "PENDING");
-  const divertedRecords = wasteRecords.filter((r) => r.status === "COLLECTED" || r.status === "PROCESSED");
+  const availableRecords = userWasteRecords.filter((r) => r.status === "AVAILABLE");
+  const pendingRecords = userWasteRecords.filter((r) => r.status === "PENDING");
+  const divertedRecords = userWasteRecords.filter((r) => r.status === "COLLECTED" || r.status === "PROCESSED");
 
   const totalAvailableTonnes = availableRecords.reduce((acc, r) => acc + (r.quantity_tonnes || 0), 0);
   const totalDivertedTonnes = divertedRecords.reduce((acc, r) => acc + (r.quantity_tonnes || 0), 0);
-  const totalTrackedTonnes = wasteRecords.reduce((acc, r) => acc + (r.quantity_tonnes || 0), 0);
+  const totalTrackedTonnes = userWasteRecords.reduce((acc, r) => acc + (r.quantity_tonnes || 0), 0);
 
-  // Group by waste type
+  // Calculate carbon offset specific to this generator's waste records
+  const userWasteIds = new Set(userWasteRecords.map((r) => r.id));
+  const userCarbonRecords = carbonRecords.filter((c) => userWasteIds.has(c.waste_record_id));
+  const userCarbonImpact = userCarbonRecords.reduce((acc, c) => acc + (c.net_co2_impact_tonnes || 0), 0);
+
+  // Group by waste type for this generator
   const typeMap: Record<string, number> = {};
-  for (const r of wasteRecords) {
+  for (const r of userWasteRecords) {
     typeMap[r.waste_type] = (typeMap[r.waste_type] || 0) + r.quantity_tonnes;
   }
   const generatorWasteByType = Object.entries(typeMap).map(([type, qty]) => ({
@@ -133,22 +160,22 @@ export function GeneratorDashboard({
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
         <KpiCard
           label="Available Feedstock"
-          value={(totalAvailableTonnes || summary.total_waste_available_tonnes).toLocaleString()}
+          value={totalAvailableTonnes.toLocaleString()}
           unit="tonnes"
           icon={Package}
           tone="primary"
         />
         <KpiCard
           label="Diverted & Converted"
-          value={(totalDivertedTonnes || summary.waste_diverted_tonnes).toLocaleString()}
+          value={totalDivertedTonnes.toLocaleString()}
           unit="tonnes"
           icon={Truck}
           tone="secondary"
         />
         <KpiCard
-          label="Active Waste Batches"
-          value={wasteRecords.length.toString()}
-          unit="listings"
+          label="My Waste Batches"
+          value={userWasteRecords.length.toString()}
+          unit="batches"
           icon={Sprout}
           tone="accent"
         />
@@ -161,7 +188,7 @@ export function GeneratorDashboard({
         />
         <KpiCard
           label="Carbon Offset Value"
-          value={summary.estimated_co2_impact_tonnes.toLocaleString()}
+          value={userCarbonImpact > 0 ? userCarbonImpact.toLocaleString() : (summary.estimated_co2_impact_tonnes).toLocaleString()}
           unit="t CO₂e"
           icon={Leaf}
           tone="primary"
@@ -275,9 +302,9 @@ export function GeneratorDashboard({
           </Link>
         </CardHeader>
         <CardContent>
-          {wasteRecords.length === 0 ? (
+          {userWasteRecords.length === 0 ? (
             <div className="py-8 text-center text-sm text-muted-foreground">
-              No waste records logged yet. Click &quot;Log Waste Batch&quot; to add your first batch.
+              No waste records logged for your generator account yet. Click &quot;Log Waste Batch&quot; to add your first batch.
             </div>
           ) : (
             <div className="overflow-x-auto">
@@ -293,7 +320,7 @@ export function GeneratorDashboard({
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border/60">
-                  {wasteRecords.slice(0, 5).map((record) => (
+                  {userWasteRecords.slice(0, 5).map((record) => (
                     <tr key={record.id} className="hover:bg-muted/40">
                       <td className="py-3 font-medium text-foreground">
                         {record.generator_name}

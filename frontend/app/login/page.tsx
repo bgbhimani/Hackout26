@@ -12,9 +12,11 @@ import { ApiError } from "@/lib/api";
 import { useAuth } from "@/hooks/use-auth";
 
 const DEMO_ACCOUNTS = [
-  { email: "admin@example.com", role: "Administrator" },
-  { email: "generator@example.com", role: "Waste Generator" },
-  { email: "facility@example.com", role: "Facility Operator" },
+  { email: "admin@example.com", role: "Administrator", desc: "Network-wide Oversight" },
+  { email: "generator1@example.com", role: "Waste Generator 1", desc: "Anand Dairy Manure" },
+  { email: "generator2@example.com", role: "Waste Generator 2", desc: "Kheda Paddy & Cotton" },
+  { email: "facility1@example.com", role: "Facility Operator 1", desc: "Anand BioGas Plant" },
+  { email: "facility2@example.com", role: "Facility Operator 2", desc: "Kheda BioCarbon Plant" },
 ];
 
 const DEMO_PASSWORD = "Demo@1234";
@@ -104,15 +106,30 @@ export default function LoginPage() {
 
         <Card className="bg-muted/50">
           <CardContent className="space-y-2 p-4 text-sm">
-            <p className="font-medium text-foreground">Demo accounts</p>
-            {DEMO_ACCOUNTS.map((account) => (
-              <div key={account.email} className="flex items-center justify-between text-muted-foreground">
-                <span>{account.email}</span>
-                <span className="text-xs">{account.role}</span>
-              </div>
-            ))}
-            <p className="pt-1 text-xs text-muted-foreground">
-              Password for all demo accounts: <span className="font-mono text-foreground">{DEMO_PASSWORD}</span>
+            <p className="font-medium text-foreground">Click to select Demo Account:</p>
+            <div className="space-y-1.5 pt-1">
+              {DEMO_ACCOUNTS.map((account) => (
+                <button
+                  type="button"
+                  key={account.email}
+                  onClick={() => {
+                    setEmail(account.email);
+                    setPassword(DEMO_PASSWORD);
+                  }}
+                  className="w-full flex items-center justify-between rounded-md p-1.5 text-left text-xs transition-colors hover:bg-background border border-transparent hover:border-border"
+                >
+                  <div>
+                    <span className="font-medium text-foreground block">{account.email}</span>
+                    <span className="text-[10px] text-muted-foreground">{account.desc}</span>
+                  </div>
+                  <span className="text-[10px] rounded bg-primary/10 px-1.5 py-0.5 font-medium text-primary">
+                    {account.role}
+                  </span>
+                </button>
+              ))}
+            </div>
+            <p className="pt-2 text-xs text-muted-foreground border-t border-border">
+              Password for all accounts: <span className="font-mono text-foreground font-semibold">{DEMO_PASSWORD}</span>
             </p>
           </CardContent>
         </Card>
